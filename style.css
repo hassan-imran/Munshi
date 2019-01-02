@@ -1,4 +1,7 @@
 
+
+/* This is for the login and sign up div */
+
 #sign-wrapper{
     max-width: 450px;
     margin: 30px auto;
@@ -16,6 +19,8 @@
     border: 1px solid #dee2e6;
     border-radius: 5px;
 }
+
+/* This is for the top menu of the website */
 
 .navbar-brand {
     font-weight: 500;
@@ -48,4 +53,11 @@
 
 .navbar-nav .nav-link {
     padding: 6px 0px;
+}
+
+
+/* This is for the error msg div */
+
+.error {
+    color: rgb(255, 71, 71);
 }

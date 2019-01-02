@@ -56,11 +56,9 @@
         </ul>
 
         <div id="sign-in">
-            <form>
                 <div class="form-group">
                     <label for="userMail">Email address</label>
-                    <input type="email" class="form-control" id="userMail" aria-describedby="emailHelp"
-                        placeholder="Enter email">
+                    <input type="email" class="form-control" id="userMail" aria-describedby="emailHelp" placeholder="Enter email">
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div class="form-group">
@@ -71,28 +69,27 @@
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 </div> -->
-                <button type="submit" class="btn btn-primary">Login</button>
-            </form>
+                <div class="form-group error" id="loginErrorMsg"></div>
+                <button type="submit" class="btn btn-primary" id="loginBtn">Login</button>
         </div>
 
         <div id="sign-up" style="display:none;">
             <div><b>Welcome to our site!</b></div>
             <div class="form-group">
                 <label for="userName">Your Name</label>
-                <input type="email" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="Enter email">
+                <input type="email" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="Enter name">
             </div>
             <div class="form-group">
                 <label for="newUserMail">Email address</label>
-                <input type="email" class="form-control" id="newUserMail" aria-describedby="emailHelp"
-                    placeholder="Enter email">
+                <input type="email" class="form-control" id="newUserMail" aria-describedby="emailHelp" placeholder="Enter email">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
                 <label for="newUserPass">Password</label>
                 <input type="password" class="form-control" id="newUserPass" placeholder="Password">
             </div>
-            <button type="submit" class="btn btn-primary">Sign Up</button>
-            </form>
+            <div class="form-group  error" id="signUpErrorMsg"></div>
+            <button type="submit" class="btn btn-primary" id="signUpBtn">Sign Up</button>
         </div>
 
     </div>
@@ -108,5 +105,23 @@
     crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
     crossorigin="anonymous"></script>
+
+<!-- Firebase linking -->
+
+
+<script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBTQ0TBdzYN9GnElEoZentEBiCmhAcbzMA",
+        authDomain: "munshi-ims.firebaseapp.com",
+        databaseURL: "https://munshi-ims.firebaseio.com",
+        projectId: "munshi-ims",
+        storageBucket: "munshi-ims.appspot.com",
+        messagingSenderId: "123637093469"
+    };
+    firebase.initializeApp(config);
+</script>
+
 
 </html>
