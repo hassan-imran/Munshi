@@ -20,6 +20,13 @@
     border-radius: 5px;
 }
 
+/* This is for the width of the tabs of the sign in / sign up */
+
+/* #sign-wrapper .nav-tabs .nav-item .nav-link {
+    min-width: 80px !important;
+    text-align: center;
+} */
+
 /* This is for the top menu of the website */
 
 .navbar-brand {
@@ -53,6 +60,15 @@
 
 .navbar-nav .nav-link {
     padding: 6px 0px;
+}
+
+
+/* This is for the top padding of the nav links when responsive at 990px */
+
+@media only screen and (max-width: 990px) {
+    .nav-item{
+        margin-bottom:10px;
+    }
 }
 
 
