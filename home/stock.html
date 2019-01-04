@@ -53,30 +53,62 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Add New Product</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div id="addProductForm">
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Product Name">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Product Barcode">
+                        </div>
+
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1"></span>
+                                <span class="input-group-text">Rps.</span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                                aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" aria-label="Amount (to the nearest Rupee)"
+                                placeholder="Cost Price">
                         </div>
 
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
-                                aria-describedby="basic-addon2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rps.</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Amount (to the nearest Rupee)"
+                                placeholder="Selling Price">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Discount" aria-label="Discount in percents"
+                                aria-describedby="basic-addon2" value="0">
                             <div class="input-group-append">
-                                <span class="input-group-text" id="basic-addon2">@example.com</span>
+                                <span class="input-group-text" id="basic-addon2">%</span>
                             </div>
                         </div>
 
-                        <label for="basic-url">Your vanity URL</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Quantity in Stock" aria-label="Pieces in Stock"
+                                aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">Pieces</span>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Pieces Sold" aria-label="Pieces already sold"
+                                aria-describedby="basic-addon2" value="0">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">Pieces</span>
+                            </div>
+                        </div>
+
+                        <!-- <label for="basic-url">Your vanity URL</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
@@ -99,7 +131,7 @@
                                 <span class="input-group-text">With textarea</span>
                             </div>
                             <textarea class="form-control" aria-label="With textarea"></textarea>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="modal-footer">
