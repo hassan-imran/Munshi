@@ -85,6 +85,21 @@
     text-align:center;
 }
 
+/* stores CSS */
+
+#store-details {
+    max-width: 1000px;
+    margin: auto
+}
+
+.card {
+    display: inline-block;
+}
+
+
+
+/* End of Stores CSS */
+
 
 /* This is for the top padding of the nav links when responsive at 990px */
 
