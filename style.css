@@ -68,6 +68,23 @@
     margin-left: 10px !important;
 }
 
+/* This is for the table container */
+
+#table-container {
+    /* width: 1000px; */
+    margin: auto;
+}
+
+/* Aligning to the right */
+
+.righto {
+    text-align: right;
+}
+
+.centero {
+    text-align:center;
+}
+
 
 /* This is for the top padding of the nav links when responsive at 990px */
 
