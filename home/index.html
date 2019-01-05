@@ -2,6 +2,10 @@
 <html lang="en">
 
 <head>
+    <!-- Firebase linking -->
+
+    <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+    <script src="firebaseLink.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -83,7 +87,9 @@
                                 <li class="list-group-item">Current Discounted Products: 10</li>
                             </a>
                             <li class="list-group-item centero">
-                                <button type="button" class="btn btn-success">Add New Product</button><!--Add modal over here-->
+                                <a href="products.html#addProductBtn"><button type="button" class="btn btn-success">Add
+                                        New Product</button></a>
+                                <!--Add modal over here-->
                             </li>
                         </ul>
                     </p>
@@ -111,7 +117,8 @@
                     </p>
                 </div>
                 <div class="card-footer centero">
-                    <button type="button" class="btn btn-success">Add New Store</button><!--Add modal over here-->
+                    <button type="button" class="btn btn-success">Add New Store</button>
+                    <!--Add modal over here-->
                 </div>
             </div>
         </div>
@@ -127,11 +134,5 @@
     crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
     crossorigin="anonymous"></script>
-
-<!-- Firebase linking -->
-
-
-<script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
-<script src="firebaseLink.js"></script>
 
 </html>

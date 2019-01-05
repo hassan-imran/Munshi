@@ -9,10 +9,19 @@ var config = {
 firebase.initializeApp(config);
 
 (() => {
+
+    var user = firebase.auth().currentUser;
+
+    if (user) {
+    }
+    else {
+        window.location.href = '../401.html';
+    }
+
     document.getElementById('signoutBtn').addEventListener('click', (e) => {
         firebase.auth().signOut().then(
             () => {
-                window.location.href= '../index.html';
+                window.location.href = '../index.html';
                 alert("You have signed out!");
             }
         )
