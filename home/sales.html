@@ -45,11 +45,65 @@
 
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">Your Sales</h1>
+            <h1 class="display-4">Your Total Sales</h1>
             <hr>
             <p class="lead"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addProduct">Add
                     New Sales</button></p>
         </div>
+    </div>
+
+
+    <div>
+        <span><b>View Category: </b></span>
+        <select name="" id="" class="custom-select" style="max-width:300px;">
+            <option value="" selected>All</option>
+            <option value="">healthcare</option>
+            <option value="">beauty</option>
+            <option value="">men's fashion</option>
+        </select>
+    </div>
+
+    <div id="table-container" class="table-responsive" style="max-width:980px;">
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Barcode</th>
+                    <th scope="col">Units sold</th>
+                    <th scope="col">Last Updated</th>
+                    <th scope="col">Total Revenue</th>
+                    <th scope="col" class="righto">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Vaseline Lotion</th>
+                    <td>12832971838217</td>
+                    <td><span class="badge badge-success">5</span></td>
+                    <td>5-1-2019</td>
+                    <td>Rs. 1000</td>
+                    <td class="righto">
+                        <button type="button" data-toggle="modal" data-target="#viewProdInfo" class="btn btn-secondary">View</button>
+                        <button type="button" class="btn btn-primary">Edit</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Philips Trimmer</th>
+                    <td>72193912834782</td>
+                    <td><span class="badge badge-success">2</span></td>
+                    <td>5-1-2019</td>
+                    <td>Rs. 6000</td>
+                    <td class="righto">
+                        <button type="button" data-toggle="modal" data-target="#viewProdInfo" class="btn btn-secondary">View</button>
+                        <button type="button" class="btn btn-primary">Edit</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
     </div>
 
 
@@ -67,5 +121,6 @@
 
 
 <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+<script src="firebaseLink.js"></script>
 
 </html>

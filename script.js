@@ -71,5 +71,11 @@ var firebaseRef = firebase.database();
             });
     });
 
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            window.location.href = "home/index.html";
+        }
+    })
+
 })();
 
