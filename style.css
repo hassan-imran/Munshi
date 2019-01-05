@@ -87,7 +87,7 @@
 
 /* stores CSS */
 
-#store-details {
+#store-details, #dash-details {
     max-width: 1000px;
     margin: auto
 }
