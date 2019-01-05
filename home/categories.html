@@ -27,7 +27,10 @@
                     <a class="nav-link" href="index.html">My Home</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Stock <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="categories.html">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="products.html">Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="stores.html">Stores</a>
@@ -44,16 +47,56 @@
     <h1>Your Stock</h1>
 
 
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addProduct">Add Product</button>
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addCategory">Add Category</button>
+
+
+    <div id="table-container" class="table-responsive">
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Barcode</th>
+                    <th scope="col">Cost Price</th>
+                    <th scope="col">Selling Price</th>
+                    <th scope="col">Discount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Vaseline Lotion</td>
+                    <td>12832971838217</td>
+                    <td>200</td>
+                    <td>250</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <th scope="row">Stock Quantity</th>
+                    <td>10</td>
+                    <th scope="row">Pieces Sold</th>
+                    <td>20</td>
+                    <th scope="row">Actions</th>
+                    <td>
+                        <button type="button" class="btn btn-primary">Edit</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
 
     <!-- Modal for adding product -->
 
-    <div class="modal fade" id="addProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    <div class="modal fade" id="addCategory" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Add New Product</h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Add New Category</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -145,48 +188,6 @@
     <!-- End of Modal for adding products -->
 
 
-    <div id="table-container" class="table-responsive">
-
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Barcode</th>
-                    <th scope="col">Cost Price</th>
-                    <th scope="col">Selling Price</th>
-                    <th scope="col">Discount</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Vaseline Lotion</td>
-                    <td>12832971838217</td>
-                    <td>200</td>
-                    <td>250</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <th scope="row">Stock Quantity</th>
-                    <td>10</td>
-                    <th scope="row">Pieces Sold</th>
-                    <td>20</td>
-                    <th scope="row">Actions</th>
-                    <td>
-                        <button type="button" class="btn btn-primary">Edit</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-    </div>
-
-
-
-
-
 </body>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -200,6 +201,5 @@
 
 
 <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
-<script src="script.js"></script>
 
 </html>
