@@ -37,7 +37,8 @@ var firebaseRef = firebase.database();
         var pass = document.getElementById('userPass').value;
         firebase.auth().signInWithEmailAndPassword(mail, pass)
             .then((res) => {
-                console.log(res.user.uid);
+                //console.log(res.user.uid);
+                localStorage.token = res.user.uid;
             })
             .catch(function (error) {
                 var errorCode = error.code;
@@ -55,7 +56,7 @@ var firebaseRef = firebase.database();
         firebase.auth().createUserWithEmailAndPassword(newMail, newPass)
             .then((res) => {
                 var userId = res.user.uid;
-                console.log(userId);
+                localStorage.token = res.user.uid;
                 firebaseRef.ref("users/").child(userId).set({
                     name: newName,
                     email: newMail,
