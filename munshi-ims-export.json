@@ -1,0 +1,93 @@
+{
+  "users": {
+    "06g6WunB4pUxW0RF1UcBSbNZFoP2": {
+      "email": "js@abc.com",
+      "name": "john smith",
+      "password": "johnny"
+    },
+    "7TzaFmhPHfc5mPEpRZw0YPqs0vj1": {
+      "email": "farrukh@abc.com",
+      "name": "Farrukh",
+      "password": "fazeem"
+    },
+    "8OOdqUUxrNhuIELdBo7p7GBeYZ63": {
+      "email": "admin@abc.com",
+      "name": "admin",
+      "password": "admin123"
+    }
+  },
+  "categories": {
+    "8OOdqUUxrNhuIELdBo7p7GBeYZ63": {
+      "beauty": 1,
+      "healthcare": 2,
+      "men's fashion": 1
+    },
+    "7TzaFmhPHfc5mPEpRZw0YPqs0vj1": {},
+    "06g6WunB4pUxW0RF1UcBSbNZFoP2": {}
+  },
+  "products": {
+    "8OOdqUUxrNhuIELdBo7p7GBeYZ63": {
+      "vaseline lotion": {
+        "manufacturer": "P&G",
+        "barcode": "12832971838217",
+        "cost price": 190,
+        "selling price": 200,
+        "discount": 0,
+        "shelved": true,
+        "in stock": 10,
+        "pieces sold": 20,
+        "categories": [
+          0,
+          1
+        ],
+        "description": "this is a great product and whatever"
+      },
+      "philips trimmer": {
+        "manufacturer": "Philips",
+        "barcode": "72193912834782",
+        "cost price": 2000,
+        "selling price": 3000,
+        "discount": 30,
+        "shelved": true,
+        "in stock": 5,
+        "pieces sold": 2,
+        "categories": [
+          2
+        ],
+        "description": "this is a great product and whatever"
+      }
+    },
+    "7TzaFmhPHfc5mPEpRZw0YPqs0vj1": {},
+    "06g6WunB4pUxW0RF1UcBSbNZFoP2": {}
+  },
+  "stores": {
+    "8OOdqUUxrNhuIELdBo7p7GBeYZ63": {
+      "Safoora Branch": {
+        "address": "C-130, Block 12, Gulistan e Johar, University Road, Karachi",
+        "categories": [
+          0,
+          1
+        ],
+        "products": [
+          0
+        ]
+      },
+      "hassan square branch": {
+        "address": "C-10, Block 3, Gulhan, University Road, Karachi",
+        "categories": [
+          2
+        ],
+        "products": [
+          1
+        ]
+      }
+    },
+    "7TzaFmhPHfc5mPEpRZw0YPqs0vj1": {},
+    "06g6WunB4pUxW0RF1UcBSbNZFoP2": {}
+  },
+  "sales": {
+    "06g6WunB4pUxW0RF1UcBSbNZFoP2": {},
+    "7TzaFmhPHfc5mPEpRZw0YPqs0vj1": {},
+    "06g6WunB4pUxW0RF1UcBSbNZFoP2": {}
+  }
+}
