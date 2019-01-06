@@ -5,7 +5,7 @@
     <!-- Firebase linking -->
 
     <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
-    <script src="firebaseLink.js"></script>
+    <script src="firebaseInit.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -51,23 +51,34 @@
         <div class="container">
             <h1 class="display-4">Your Total Sales</h1>
             <hr>
-            <p class="lead"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addProduct">Add
+            <p class="lead"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addSales">Add
                     New Sales</button></p>
         </div>
     </div>
 
 
-    <div>
-        <span><b>View Category: </b></span>
-        <select name="" id="" class="custom-select" style="max-width:300px;">
-            <option value="" selected>All</option>
-            <option value="">healthcare</option>
-            <option value="">beauty</option>
-            <option value="">men's fashion</option>
-        </select>
-    </div>
+
 
     <div id="table-container" class="table-responsive" style="max-width:980px;">
+
+        <div style=" display: inline-block;">
+            <span><b>View Category: </b></span>
+            <select name="" id="" class="custom-select" style="max-width:300px; display: inline-block;">
+                <option value="" selected>All</option>
+                <option value="">healthcare</option>
+                <option value="">beauty</option>
+                <option value="">men's fashion</option>
+            </select>
+        </div>
+
+        <div style=" display: inline-block;">
+            <span><b>View Store: </b></span>
+            <select name="" id="" class="custom-select" style="max-width:300px;">
+                <option value="" selected>All</option>
+                <option value="">Gulshan</option>
+                <option value="">Hassan Square</option>
+            </select>
+        </div>
 
         <table class="table table-striped">
             <thead>
@@ -112,6 +123,158 @@
 
 
 
+
+    <!-- Modal for adding product -->
+
+    <div class="modal fade" id="addSales" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Add New Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="addProductForm">
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Product Name">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Manufacturer Name">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Product Barcode">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rps.</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Amount (to the nearest Rupee)"
+                                placeholder="Cost Price">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rps.</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Amount (to the nearest Rupee)"
+                                placeholder="Selling Price">
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Discount" aria-label="Discount in percents"
+                                aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">%</span>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group">
+                                <span class="input-group-text">Marked Price: Rs.</span>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Quantity in Stock" aria-label="Pieces in Stock"
+                                aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">Pieces</span>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Pieces Sold" aria-label="Pieces already sold"
+                                aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2">Pieces</span>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Categories</span>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                <label class="form-check-label" for="inlineCheckbox1">Beauty</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                <label class="form-check-label" for="inlineCheckbox2">Healthcare</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                                <label class="form-check-label" for="inlineCheckbox3">Men's Fashion</label>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Description</span>
+                            </div>
+                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End of Modal for adding products -->
+
+    <!-- Modal for viewing info on Product-->
+
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="viewSaleInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Vaseline Lotion</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul style="list-style:none;">
+                        <li><b>Manufacturer:</b> P&G</li>
+                        <li><b>Barcode:</b> 12832971838217</li>
+                        <li><b>Cost Price:</b> Rs. 190</li>
+                        <li><b>Discount:</b> 0%</li>
+                        <li><b>Selling Price:</b> Rs. 200</li>
+                        <li><b>Shelved:</b> Yes</li>
+                        <li><b>In Stock:</b> 10</li>
+                        <li><b>Pieces Sold</b> 20</li>
+                        <li><b>Categories:</b>
+                            <span class="badge badge-secondary">healthcare</span>
+                            <span class="badge badge-secondary">beauty</span>
+                        </li>
+                        <li><b>Description:</b> Very great lotion & whatever</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End of Modal for viewing info on Product-->
+
+
+
+
 </body>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -120,5 +283,8 @@
     crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
     crossorigin="anonymous"></script>
+
+<script src="firebaseLink.js"></script>
+
 
 </html>

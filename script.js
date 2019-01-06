@@ -1,13 +1,13 @@
 // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyBTQ0TBdzYN9GnElEoZentEBiCmhAcbzMA",
-        authDomain: "munshi-ims.firebaseapp.com",
-        databaseURL: "https://munshi-ims.firebaseio.com",
-        projectId: "munshi-ims",
-        storageBucket: "munshi-ims.appspot.com",
-        messagingSenderId: "123637093469"
-    };
-    firebase.initializeApp(config);
+var config = {
+    apiKey: "AIzaSyBTQ0TBdzYN9GnElEoZentEBiCmhAcbzMA",
+    authDomain: "munshi-ims.firebaseapp.com",
+    databaseURL: "https://munshi-ims.firebaseio.com",
+    projectId: "munshi-ims",
+    storageBucket: "munshi-ims.appspot.com",
+    messagingSenderId: "123637093469"
+};
+firebase.initializeApp(config);
 
 document.getElementById("signUpButton").addEventListener("click", (e) => {
     var a = document.getElementById("sign-in");
@@ -57,9 +57,9 @@ var firebaseRef = firebase.database();
                 var userId = res.user.uid;
                 console.log(userId);
                 firebaseRef.ref("users/").child(userId).set({
-                        name: newName,
-                        email: newMail,
-                        password: newPass
+                    name: newName,
+                    email: newMail,
+                    password: newPass
                 })
             })
             .catch(function (error) {
@@ -71,7 +71,7 @@ var firebaseRef = firebase.database();
             });
     });
 
-    firebase.auth().onAuthStateChanged(function(user) {
+    firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             window.location.href = "home/index.html";
         }
