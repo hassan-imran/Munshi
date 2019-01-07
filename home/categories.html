@@ -69,52 +69,7 @@
                 </tr>
             </thead>
             <tbody>
-                <script>
-                    var categories, products, stores;
-                    var stores = JSON.parse(localStorage.stores);
-                    if (!(localStorage.categories && localStorage.products && localStorage.stores)) {
-                        firebase.database().ref("categories/" + localStorage.token).once('value').then((snapshot) => {
-                            localStorage.categories = JSON.stringify(snapshot.val());
-                            categories = JSON.parse(localStorage.categories);
-                        });
-                        firebase.database().ref("products/" + localStorage.token).once('value').then((snapshot) => {
-                            localStorage.products = JSON.stringify(snapshot.val());
-                            products = JSON.parse(localStorage.products);
-                        });
-                        firebase.database().ref("stores/" + localStorage.token).once('value').then((snapshot) => {
-                            localStorage.stores = JSON.stringify(snapshot.val());
-                            stores = JSON.parse(localStorage.stores);
-                        });
-                    }
-                    else {
-                        categories = JSON.parse(localStorage.categories);
-                        products = JSON.parse(localStorage.products);
-                        stores = JSON.parse(localStorage.stores);
-                    }
-                    var a = document.getElementById("category-table").getElementsByTagName("tbody")[0];
-                    for (let name in categories) {
-                        a.innerHTML += `<tr>
-                            <th scope="row">${name}</th>
-                            <td>${categories[name]}</td>
-                            <td class="righto">
-                                <button type="button" data-toggle="modal" data-target="#viewCatInfo" class="btn btn-secondary">View</button>
-                                <button type="button" class="btn btn-primary">Edit</button>
-                                <button type="button" class="btn btn-danger">Delete</button>
-                            </td>
-                        </tr>`;
-                    }
-                    /*for (var i = 0; i < Object.keys(categories).length; i++) {
-                        a.innerHTML += `<tr>
-                            <th scope="row">${Object.keys(categories)[i]}</th>
-                            <td>${Object.values(categories)[i]}</td>
-                            <td class="righto">
-                                <button type="button" data-toggle="modal" data-target="#viewCatInfo" class="btn btn-secondary">View</button>
-                                <button type="button" class="btn btn-primary">Edit</button>
-                                <button type="button" class="btn btn-danger">Delete</button>
-                            </td>
-                        </tr>`;
-                    }*/
-                </script>
+
             </tbody>
         </table>
 
@@ -136,13 +91,13 @@
                 <div class="modal-body">
                     <div id="addProductForm">
                         <div class="form-group">
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Category Name">
+                            <input type="email" class="form-control" id="addNewCatInput" placeholder="Category Name">
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add</button>
+                    <button type="button" class="btn btn-primary" id="addNewCatBtn">Add</button>
                 </div>
             </div>
         </div>
@@ -190,5 +145,57 @@
 
 <script src="firebaseLink.js"></script>
 
+<script>
+    var categories, products, stores;
+    if (!(localStorage.categories && localStorage.products && localStorage.stores)) {
+        firebase.database().ref("categories/" + localStorage.token).once('value').then((snapshot) => {
+            localStorage.categories = JSON.stringify(snapshot.val());
+            categories = JSON.parse(localStorage.categories);
+        });
+        firebase.database().ref("products/" + localStorage.token).once('value').then((snapshot) => {
+            localStorage.products = JSON.stringify(snapshot.val());
+            products = JSON.parse(localStorage.products);
+        });
+        firebase.database().ref("stores/" + localStorage.token).once('value').then((snapshot) => {
+            localStorage.stores = JSON.stringify(snapshot.val());
+            stores = JSON.parse(localStorage.stores);
+        });
+    }
+    else {
+        categories = JSON.parse(localStorage.categories);
+        products = JSON.parse(localStorage.products);
+        stores = JSON.parse(localStorage.stores);
+    }
+    var a = document.getElementById("category-table").getElementsByTagName("tbody")[0];
+    for (let name in categories) {
+        a.innerHTML += `<tr>
+                <th scope="row">${name}</th>
+                <td>${categories[name]}</td>
+                <td class="righto">
+                    <button type="button" data-toggle="modal" data-target="#viewCatInfo" class="btn btn-secondary">View</button>
+                    <button type="button" class="btn btn-primary">Edit</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </td>
+            </tr>`;
+    };
+    /*for (var i = 0; i < Object.keys(categories).length; i++) {
+        a.innerHTML += `<tr>
+            <th scope="row">${Object.keys(categories)[i]}</th>
+            <td>${Object.values(categories)[i]}</td>
+            <td class="righto">
+                <button type="button" data-toggle="modal" data-target="#viewCatInfo" class="btn btn-secondary">View</button>
+                <button type="button" class="btn btn-primary">Edit</button>
+                <button type="button" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>`;
+    }*/
+
+    document.getElementById("addNewCatBtn").addEventListener('click', (e) => {
+        var newCat = document.getElementById("addNewCatInput").value;
+        
+        localStorage.categories = JSON.stringify(categories);
+    });
+
+</script>
 
 </html>
