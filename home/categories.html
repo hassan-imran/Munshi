@@ -178,22 +178,12 @@
                 </td>
             </tr>`;
     };
-    /*for (var i = 0; i < Object.keys(categories).length; i++) {
-        a.innerHTML += `<tr>
-            <th scope="row">${Object.keys(categories)[i]}</th>
-            <td>${Object.values(categories)[i]}</td>
-            <td class="righto">
-                <button type="button" data-toggle="modal" data-target="#viewCatInfo" class="btn btn-secondary">View</button>
-                <button type="button" class="btn btn-primary">Edit</button>
-                <button type="button" class="btn btn-danger">Delete</button>
-            </td>
-        </tr>`;
-    }*/
 
     document.getElementById("addNewCatBtn").addEventListener('click', (e) => {
         var newCat = document.getElementById("addNewCatInput").value;
-        
+        categories[newCat] = 0;
         localStorage.categories = JSON.stringify(categories);
+        window.location.reload();
     });
 
 </script>
