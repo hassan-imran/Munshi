@@ -143,8 +143,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
     crossorigin="anonymous"></script>
 
-<script src="firebaseLink.js"></script>
-
 <script>
     var categories, products, stores;
     if (!(localStorage.categories && localStorage.products && localStorage.stores)) {
@@ -174,7 +172,7 @@
                 <td class="righto">
                     <button type="button" data-toggle="modal" data-target="#viewCatInfo" class="btn btn-secondary">View</button>
                     <button type="button" class="btn btn-primary">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                    <button type="button" class="btn btn-danger" onclick="deleteCat('${name}')" >Delete</button>
                 </td>
             </tr>`;
     };
@@ -183,9 +181,24 @@
         var newCat = document.getElementById("addNewCatInput").value;
         categories[newCat] = 0;
         localStorage.categories = JSON.stringify(categories);
-        window.location.reload();
+        firebase.database().ref("/categories/" + localStorage.token).update(categories)
+            .then(() => {
+                window.location.reload();
+            })
+
     });
 
+    function deleteCat(catName) {
+        delete categories[catName];
+        localStorage.categories = JSON.stringify(categories);
+        firebase.database().ref("/categories/" + localStorage.token).set(categories)
+            .then(() => {
+                window.location.reload();
+            })
+    }
+
 </script>
+
+<script src="firebaseLink.js"></script>
 
 </html>
