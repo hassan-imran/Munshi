@@ -60,7 +60,7 @@
     <div id="table-container" class="table-responsive" style="max-width:980px;">
 
 
-        <div>
+        <!-- <div>
             <span><b>View Category: </b></span>
             <select name="" id="" class="custom-select" style="max-width:300px;">
                 <option value="" selected>All</option>
@@ -70,9 +70,9 @@
             </select>
         </div>
 
-        <hr>
+        <hr> -->
 
-        <table class="table table-striped">
+        <table class="table table-striped" id="prod-table">
             <thead>
                 <tr>
                     <th scope="col">Name</th>
@@ -84,7 +84,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <!-- <tr>
                     <th scope="row">Vaseline Lotion</th>
                     <td>P&G</td>
                     <td>12832971838217</td>
@@ -107,7 +107,7 @@
                         <button type="button" class="btn btn-primary">Edit</button>
                         <button type="button" class="btn btn-danger">Delete</button>
                     </td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
 
@@ -121,7 +121,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Add New Product</h5>
+                    <h5 class="modal-title">Add New Product</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -129,15 +129,15 @@
                 <div class="modal-body">
                     <div id="addProductForm">
                         <div class="form-group">
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Product Name">
+                            <input type="email" class="form-control" id="prodName" placeholder="Product Name">
                         </div>
 
                         <div class="form-group">
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Manufacturer Name">
+                            <input type="email" class="form-control" id="manufacturer" placeholder="Manufacturer Name">
                         </div>
 
                         <div class="form-group">
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Product Barcode">
+                            <input type="email" class="form-control" id="barcode" placeholder="Product Barcode">
                         </div>
 
                         <div class="input-group mb-3">
@@ -145,7 +145,7 @@
                                 <span class="input-group-text">Rps.</span>
                             </div>
                             <input type="text" class="form-control" aria-label="Amount (to the nearest Rupee)"
-                                placeholder="Cost Price">
+                                placeholder="Cost Price" id="cp">
                         </div>
 
                         <div class="input-group mb-3">
@@ -153,12 +153,12 @@
                                 <span class="input-group-text">Rps.</span>
                             </div>
                             <input type="text" class="form-control" aria-label="Amount (to the nearest Rupee)"
-                                placeholder="Selling Price">
+                                placeholder="Selling Price" id="sp">
                         </div>
 
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Discount" aria-label="Discount in percents"
-                                aria-describedby="basic-addon2">
+                                aria-describedby="basic-addon2" id="discount">
                             <div class="input-group-append">
                                 <span class="input-group-text" id="basic-addon2">%</span>
                             </div>
@@ -172,21 +172,21 @@
 
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Quantity in Stock" aria-label="Pieces in Stock"
-                                aria-describedby="basic-addon2">
+                                aria-describedby="basic-addon2" id="stock">
                             <div class="input-group-append">
-                                <span class="input-group-text" id="basic-addon2">Pieces</span>
+                                <span class="input-group-text">Pieces</span>
                             </div>
                         </div>
 
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Pieces Sold" aria-label="Pieces already sold"
-                                aria-describedby="basic-addon2">
+                                aria-describedby="basic-addon2" id="sold">
                             <div class="input-group-append">
-                                <span class="input-group-text" id="basic-addon2">Pieces</span>
+                                <span class="input-group-text">Pieces</span>
                             </div>
                         </div>
 
-                        <div class="input-group mb-3">
+                        <!-- <div class="input-group mb-3">
                             <span class="input-group-text">Categories</span>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
@@ -200,20 +200,20 @@
                                 <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
                                 <label class="form-check-label" for="inlineCheckbox3">Men's Fashion</label>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Description</span>
                             </div>
-                            <textarea class="form-control" aria-label="With textarea"></textarea>
+                            <textarea class="form-control" aria-label="With textarea" id="description"></textarea>
                         </div>
 
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Add</button>
+                    <button type="button" class="btn btn-success" id="addNewProdBtn">Add</button>
                 </div>
             </div>
         </div>
@@ -223,35 +223,21 @@
 
     <!-- Modal for viewing info on Product-->
 
-    <!-- Button trigger modal -->
-
     <!-- Modal -->
     <div class="modal fade" id="viewProdInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Vaseline Lotion</h5>
+                    <h5 class="modal-title" id="prodInfoHead">
+                        <!--Vaseline Lotion-->
+                    </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <ul style="list-style:none;">
-                        <li><b>Manufacturer:</b> P&G</li>
-                        <li><b>Barcode:</b> 12832971838217</li>
-                        <li><b>Cost Price:</b> Rs. 190</li>
-                        <li><b>Discount:</b> 0%</li>
-                        <li><b>Selling Price:</b> Rs. 200</li>
-                        <li><b>Shelved:</b> Yes</li>
-                        <li><b>In Stock:</b> 10</li>
-                        <li><b>Pieces Sold</b> 20</li>
-                        <li><b>Categories:</b>
-                            <span class="badge badge-secondary">healthcare</span>
-                            <span class="badge badge-secondary">beauty</span>
-                        </li>
-                        <li><b>Description:</b> Very great lotion & whatever</li>
-                    </ul>
+                    <ul style="list-style:none;" id="prod-detail"></ul>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -271,6 +257,99 @@
     crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
     crossorigin="anonymous"></script>
+
+
+<script>
+    var products, stores;
+    if (!(localStorage.products && localStorage.stores)) {
+        firebase.database().ref("products/" + localStorage.token).once('value').then((snapshot) => {
+            localStorage.products = JSON.stringify(snapshot.val());
+            products = JSON.parse(localStorage.products);
+        });
+        firebase.database().ref("stores/" + localStorage.token).once('value').then((snapshot) => {
+            localStorage.stores = JSON.stringify(snapshot.val());
+            stores = JSON.parse(localStorage.stores);
+        });
+    }
+    else {
+        products = JSON.parse(localStorage.products);
+        stores = JSON.parse(localStorage.stores);
+    }
+    var a = document.getElementById("prod-table").getElementsByTagName("tbody")[0];
+    for (let name in products) {
+        a.innerHTML += `<tr>
+                    <th scope="row">${name}</th>
+                    <td>${products[name].manufacturer}</td>
+                    <td>${products[name].barcode}</td>
+                    <td><del>Rs. ${products[name].sp}</del><br><span class="error">Rs. ${products[name].sp - (products[name].discount * 0.01 * products[name].sp)}</span></td>
+                    <td><span class="badge badge-success">${products[name].stock}</span></td>
+                    <td class="righto">
+                        <button type="button" data-toggle="modal" data-target="#viewProdInfo" class="btn btn-secondary" onclick="prodInfo('${name}')">View</button>
+                        <button type="button" class="btn btn-primary">Edit</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>`
+
+        /*a.innerHTML += `<tr>
+                    <th scope="row">${name}</th>
+                    <td>${categories[name]}</td>
+                    <td class="righto">
+                        <button type="button" data-toggle="modal" data-target="#viewCatInfo" class="btn btn-secondary">View</button>
+                        <button type="button" class="btn btn-primary">Edit</button>
+                        <button type="button" class="btn btn-danger" onclick="deleteProduct('${name}')" >Delete</button>
+                    </td>
+                </tr>`;*/
+    };
+
+    function prodInfo(prodName) {
+        document.getElementById("prodInfoHead").innerHTML = prodName;
+        var x = products[prodName];
+        document.getElementById("prod-detail").innerHTML = `<li><b>Manufacturer:</b> ${x.manufacturer}</li>
+                        <li><b>Barcode:</b> ${x.barcode}</li>
+                        <li><b>Cost Price:</b> Rs. ${x.cp}</li>
+                        <li><b>Discount:</b> ${x.discount}%</li>
+                        <li><b>Selling Price:</b> Rs. ${x.sp}</li>
+                        <li><b>Shelved:</b> ${x.shelved}</li>
+                        <li><b>In Stock:</b> ${x.stock}</li>
+                        <li><b>Pieces Sold</b> ${x.sold}</li>
+                        <li><b>Description:</b> ${x.description}</li>`;
+    };
+
+    document.getElementById("addNewProdBtn").addEventListener('click', (e) => {
+        var newProd = {
+          [$('#prodName').val()] : {
+              'manufacturer' : $('#manufacturer').val(),
+              'barcode' : $('#barcode').val(),
+              'cp' : $('#cp').val(),
+              'discount' : $('#discount').val(),
+              'sp' : $('#sp').val(),
+              'shelved' : $('#shelved').val(),
+              'stock' : $('#stock').val(),
+              'sold' : $('#sold').val(),
+              'description' : $('#description').val(),
+          }  
+        };
+        console.log(newProd);
+        //categories[newCat] = 0;
+        ///localStorage.categories = JSON.stringify(categories);
+        /*firebase.database().ref("/categories/" + localStorage.token).update(categories)
+            .then(() => {
+                window.location.reload();
+            })*/
+
+    });
+
+    function deleteCat(catName) {
+        delete categories[catName];
+        localStorage.categories = JSON.stringify(categories);
+        firebase.database().ref("/categories/" + localStorage.token).set(categories)
+            .then(() => {
+                window.location.reload();
+            })
+    }
+
+</script>
+
 
 <script src="firebaseLink.js"></script>
 

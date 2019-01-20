@@ -16,15 +16,6 @@
       "password": "admin123"
     }
   },
-  "categories": {
-    "8OOdqUUxrNhuIELdBo7p7GBeYZ63": {
-      "beauty": 1,
-      "healthcare": 2,
-      "men's fashion": 1
-    },
-    "7TzaFmhPHfc5mPEpRZw0YPqs0vj1": {},
-    "06g6WunB4pUxW0RF1UcBSbNZFoP2": {}
-  },
   "products": {
     "8OOdqUUxrNhuIELdBo7p7GBeYZ63": {
       "vaseline lotion": {
