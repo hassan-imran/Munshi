@@ -84,30 +84,6 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- <tr>
-                    <th scope="row">Vaseline Lotion</th>
-                    <td>P&G</td>
-                    <td>12832971838217</td>
-                    <td>Rs. 200</td>
-                    <td><span class="badge badge-success">10</span></td>
-                    <td class="righto">
-                        <button type="button" data-toggle="modal" data-target="#viewProdInfo" class="btn btn-secondary">View</button>
-                        <button type="button" class="btn btn-primary">Edit</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">Philips Trimmer</th>
-                    <td>Philips</td>
-                    <td>72193912834782</td>
-                    <td><del>Rs. 3000</del><br><span class="error">Rs. 2000</span></td>
-                    <td><span class="badge badge-success">5</span></td>
-                    <td class="righto">
-                        <button type="button" data-toggle="modal" data-target="#viewProdInfo" class="btn btn-secondary">View</button>
-                        <button type="button" class="btn btn-primary">Edit</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
-                    </td>
-                </tr> -->
             </tbody>
         </table>
 
@@ -186,21 +162,13 @@
                             </div>
                         </div>
 
-                        <!-- <div class="input-group mb-3">
-                            <span class="input-group-text">Categories</span>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                <label class="form-check-label" for="inlineCheckbox1">Beauty</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                <label class="form-check-label" for="inlineCheckbox2">Healthcare</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                                <label class="form-check-label" for="inlineCheckbox3">Men's Fashion</label>
-                            </div>
-                        </div> -->
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Shelved</span>
+                            <select name="" id="shelved" class="custom-select">
+                                <option value="true" selected>Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                        </div>
 
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -276,29 +244,25 @@
         stores = JSON.parse(localStorage.stores);
     }
     var a = document.getElementById("prod-table").getElementsByTagName("tbody")[0];
+    var b = 0;
     for (let name in products) {
         a.innerHTML += `<tr>
                     <th scope="row">${name}</th>
                     <td>${products[name].manufacturer}</td>
                     <td>${products[name].barcode}</td>
-                    <td><del>Rs. ${products[name].sp}</del><br><span class="error">Rs. ${products[name].sp - (products[name].discount * 0.01 * products[name].sp)}</span></td>
+                    <td><span class="act-price">Rs. ${products[name].sp}</span><br><span class="error dis-price" style="display:none;">Rs. ${products[name].sp - (products[name].discount * 0.01 * products[name].sp)}</span></td>
                     <td><span class="badge badge-success">${products[name].stock}</span></td>
                     <td class="righto">
                         <button type="button" data-toggle="modal" data-target="#viewProdInfo" class="btn btn-secondary" onclick="prodInfo('${name}')">View</button>
                         <button type="button" class="btn btn-primary">Edit</button>
                         <button type="button" class="btn btn-danger">Delete</button>
                     </td>
-                </tr>`
-
-        /*a.innerHTML += `<tr>
-                    <th scope="row">${name}</th>
-                    <td>${categories[name]}</td>
-                    <td class="righto">
-                        <button type="button" data-toggle="modal" data-target="#viewCatInfo" class="btn btn-secondary">View</button>
-                        <button type="button" class="btn btn-primary">Edit</button>
-                        <button type="button" class="btn btn-danger" onclick="deleteProduct('${name}')" >Delete</button>
-                    </td>
-                </tr>`;*/
+                </tr>`;
+        if (products[name].discount != 0) {
+            document.getElementsByClassName("act-price")[b].style.textDecoration = "line-through";
+            document.getElementsByClassName("dis-price")[b].style.display = "inline";
+        }
+        b++;
     };
 
     function prodInfo(prodName) {
@@ -317,36 +281,39 @@
 
     document.getElementById("addNewProdBtn").addEventListener('click', (e) => {
         var newProd = {
-          [$('#prodName').val()] : {
-              'manufacturer' : $('#manufacturer').val(),
-              'barcode' : $('#barcode').val(),
-              'cp' : $('#cp').val(),
-              'discount' : $('#discount').val(),
-              'sp' : $('#sp').val(),
-              'shelved' : $('#shelved').val(),
-              'stock' : $('#stock').val(),
-              'sold' : $('#sold').val(),
-              'description' : $('#description').val(),
-          }  
+            [$('#prodName').val()]: {
+                'manufacturer': $('#manufacturer').val(),
+                'barcode': $('#barcode').val(),
+                'cp': $('#cp').val(),
+                'discount': $('#discount').val(),
+                'sp': $('#sp').val(),
+                'shelved': $('#shelved').val(),
+                'stock': $('#stock').val(),
+                'sold': $('#sold').val(),
+                'description': $('#description').val(),
+            }
         };
-        console.log(newProd);
-        //categories[newCat] = 0;
-        ///localStorage.categories = JSON.stringify(categories);
-        /*firebase.database().ref("/categories/" + localStorage.token).update(categories)
-            .then(() => {
-                window.location.reload();
-            })*/
-
+        Object.assign(products, newProd);
+        localStorage.products = JSON.stringify(products);
+        firebase.database().ref("/products/" + localStorage.token).update(newProd).then(()=>reloadPage());
     });
 
-    function deleteCat(catName) {
+    function reloadPage() {
+        window.location.reload();
+    }
+
+    function deleteProd() {
+
+    };
+
+    /*function deleteCat(catName) {
         delete categories[catName];
         localStorage.categories = JSON.stringify(categories);
         firebase.database().ref("/categories/" + localStorage.token).set(categories)
             .then(() => {
                 window.location.reload();
             })
-    }
+    }*/
 
 </script>
 
