@@ -82,7 +82,7 @@
 
         <hr>
 
-        <table class="table table-striped">
+        <table class="table table-striped" id="sales-table">
             <thead>
                 <tr>
                     <th scope="col">Name</th>
@@ -93,32 +93,7 @@
                     <th scope="col" class="righto">Actions</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">Vaseline Lotion</th>
-                    <td>12832971838217</td>
-                    <td><span class="badge badge-success">5</span></td>
-                    <td>5-1-2019</td>
-                    <td>Rs. 1000</td>
-                    <td class="righto">
-                        <button type="button" data-toggle="modal" data-target="#viewProdInfo" class="btn btn-secondary">View</button>
-                        <button type="button" class="btn btn-primary">Edit</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">Philips Trimmer</th>
-                    <td>72193912834782</td>
-                    <td><span class="badge badge-success">2</span></td>
-                    <td>5-1-2019</td>
-                    <td>Rs. 6000</td>
-                    <td class="righto">
-                        <button type="button" data-toggle="modal" data-target="#viewProdInfo" class="btn btn-secondary">View</button>
-                        <button type="button" class="btn btn-primary">Edit</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
+            <tbody></tbody>
         </table>
 
     </div>
@@ -260,6 +235,52 @@
     crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
     crossorigin="anonymous"></script>
+
+<script>
+    var products, stores;
+    if (!(localStorage.products && localStorage.stores)) {
+        firebase.database().ref("products/" + localStorage.token).once('value').then((snapshot) => {
+            localStorage.products = JSON.stringify(snapshot.val());
+            products = JSON.parse(localStorage.products);
+        });
+        firebase.database().ref("stores/" + localStorage.token).once('value').then((snapshot) => {
+            localStorage.stores = JSON.stringify(snapshot.val());
+            stores = JSON.parse(localStorage.stores);
+        });
+    }
+    else {
+        products = JSON.parse(localStorage.products);
+        stores = JSON.parse(localStorage.stores);
+    }
+    var a = document.getElementById("sales-table").getElementsByTagName("tbody")[0];
+    //var b = 0;
+    for (let name in products) {
+        a.innerHTML += `<tr>
+    <th scope="row">${name}</th>
+    <td>${products[name].barcode}</td>
+    <td><span class="badge badge-success">${products[name].sold}</span></td>
+    <td>${products[name].date}</td>
+    <td>Rs. ${products[name].revenue}</span></td>
+    <td class="righto">
+        <button type="button" data-toggle="modal" data-target="#viewSaleInfo" class="btn btn-primary" onclick="saleInfo('${name}')">View</button>
+        <button type="button" onclick="editProd('${name}')" class="btn btn-success">Add Sale</button>
+        <button type="button" class="btn btn-danger" onclick="deleteProd('${name}')">Delete</button>
+    </td>
+</tr>`;
+    };
+
+    function saleInfo(prodName) {
+        document.getElementById("prodInfoHead").innerHTML = prodName;
+        var x = products[prodName];
+        document.getElementById("prod-detail").innerHTML = `<li><b>Manufacturer:</b> ${x.manufacturer}</li>
+                        <li><b>Barcode:</b> ${x.barcode}</li>
+                        <li><b>Pieces Sold:</b> ${x.sold}</li>
+                        <li><b>Marked Price:</b>Rs. ${x.sp - (x.discount * 0.01 * x.sp)}</li>
+                        <li><b>Profit:</b> Rs. ${x.profit}</li>
+                        <li><b>Total Revenue:</b> Rs. ${x.revenue}</li>
+                        <li><b>Total Profit:</b> Rs. ${x.profit*x.sold}</li>`;
+    };
+</script>
 
 <script src="firebaseLink.js"></script>
 
