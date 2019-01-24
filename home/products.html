@@ -192,14 +192,12 @@
     <!-- Modal for viewing info on Product-->
 
     <!-- Modal -->
-    <div class="modal fade" id="viewProdInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="viewProdInfo" tabindex="-1" role="dialog"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="prodInfoHead">
-                        <!--Vaseline Lotion-->
-                    </h5>
+                    <h5 class="modal-title" id="prodInfoHead"></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -254,8 +252,8 @@
                     <td><span class="badge badge-success">${products[name].stock}</span></td>
                     <td class="righto">
                         <button type="button" data-toggle="modal" data-target="#viewProdInfo" class="btn btn-secondary" onclick="prodInfo('${name}')">View</button>
-                        <button type="button" class="btn btn-primary">Edit</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
+                        <button type="button" onclick="editProd('${name}')" class="btn btn-primary">Edit</button>
+                        <button type="button" class="btn btn-danger" onclick="deleteProd('${name}')">Delete</button>
                     </td>
                 </tr>`;
         if (products[name].discount != 0) {
@@ -295,25 +293,40 @@
         };
         Object.assign(products, newProd);
         localStorage.products = JSON.stringify(products);
-        firebase.database().ref("/products/" + localStorage.token).update(newProd).then(()=>reloadPage());
+        firebase.database().ref("/products/" + localStorage.token).update(newProd).then(() => reloadPage());
     });
 
     function reloadPage() {
         window.location.reload();
     }
 
-    function deleteProd() {
-
+    function deleteProd(name) {
+        delete products[name];
+        localStorage.products = JSON.stringify(products);
+        firebase.database().ref("/products/" + localStorage.token).set(products)
+            .then(() => {
+                reloadPage();
+            })
     };
 
-    /*function deleteCat(catName) {
-        delete categories[catName];
-        localStorage.categories = JSON.stringify(categories);
-        firebase.database().ref("/categories/" + localStorage.token).set(categories)
-            .then(() => {
-                window.location.reload();
-            })
-    }*/
+    function editProd(pName) {
+        document.getElementById("addProductBtn").click();
+        var x = products[pName];
+        //document.getElementById("prodName").value = pName;
+        $('#prodName')[0].value = pName;
+        $('#manufacturer')[0].value = x.manufacturer;
+        $('#barcode')[0].value = x.barcode;
+        $('#cp')[0].value = x.cp;
+        $('#discount')[0].value = x.discount;
+        $('#sp')[0].value = x.sp;
+        $('#shelved')[0].value = x.shelved;
+        $('#sp')[0].value = x.sp;
+        $('#stock')[0].value = x.stock;
+        $('#sold')[0].value = x.sold;
+        $('#description')[0].value = x.description;
+    }
+
+
 
 </script>
 
