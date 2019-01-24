@@ -129,12 +129,12 @@
                                 <span class="input-group-text">Rps.</span>
                             </div>
                             <input type="text" class="form-control" aria-label="Amount (to the nearest Rupee)"
-                                placeholder="Selling Price" id="sp">
+                                placeholder="Selling Price" id="sp" oninput="calcMarked()">
                         </div>
 
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Discount" aria-label="Discount in percents"
-                                aria-describedby="basic-addon2" id="discount">
+                                aria-describedby="basic-addon2" id="discount" oninput="calcMarked()">
                             <div class="input-group-append">
                                 <span class="input-group-text" id="basic-addon2">%</span>
                             </div>
@@ -142,7 +142,7 @@
 
                         <div class="input-group mb-3">
                             <div class="input-group">
-                                <span class="input-group-text">Marked Price: Rs. <span id="marked"></span></span>
+                                <span class="input-group-text">Marked Price: Rs.  <span id="marked"></span></span>
                             </div>
                         </div>
 
@@ -271,10 +271,10 @@
                         <li><b>Cost Price:</b> Rs. ${x.cp}</li>
                         <li><b>Selling Price:</b> Rs. ${x.sp}</li>
                         <li><b>Discount:</b> ${x.discount}%</li>
-                        <li><b>Marked Price:</b> ${x.sp - (x.discount * 0.01 * x.sp)}</li>
+                        <li><b>Marked Price:</b>Rs. ${x.sp - (x.discount * 0.01 * x.sp)}</li>
                         <li><b>Shelved:</b> ${x.shelved}</li>
                         <li><b>In Stock:</b> ${x.stock}</li>
-                        <li><b>Pieces Sold</b> ${x.sold}</li>
+                        <li><b>Pieces Sold:</b> ${x.sold}</li>
                         <li><b>Description:</b> ${x.description}</li>`;
     };
 
@@ -339,6 +339,13 @@
         $('#stock')[0].value = '';
         $('#sold')[0].value = '';
         $('#description')[0].value = '';
+    }
+
+    function calcMarked(){
+        var a = document.getElementById("sp").value;
+        var b = document.getElementById("discount").value;
+        var c = document.getElementById("marked");
+        c.innerHTML = (a - (a*0.01*b)).toFixed(2);
     }
 
     /*document.getElementById('discount').addEventListener("change",(e)=>{
