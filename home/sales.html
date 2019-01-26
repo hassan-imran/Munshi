@@ -51,8 +51,8 @@
         <div class="container">
             <h1 class="display-4">Your Total Sales</h1>
             <hr>
-            <p class="lead"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addSales">Add
-                    New Sales</button></p>
+            <!-- <p class="lead"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addSales">Add
+                    New Sales</button></p> -->
         </div>
     </div>
 
@@ -115,55 +115,7 @@
                 </div>
                 <div class="modal-body">
                     <div id="addProductForm">
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="prodName" placeholder="Product Name">
-                        </div>
-
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="manufacturer" placeholder="Manufacturer Name">
-                        </div>
-
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="barcode" placeholder="Product Barcode">
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Rps.</span>
-                            </div>
-                            <input type="text" class="form-control" aria-label="Amount (to the nearest Rupee)"
-                                placeholder="Cost Price" id="cp">
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Rps.</span>
-                            </div>
-                            <input type="text" class="form-control" aria-label="Amount (to the nearest Rupee)"
-                                placeholder="Selling Price" id="sp" oninput="calcMarked()">
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Discount" aria-label="Discount in percents"
-                                aria-describedby="basic-addon2" id="discount" oninput="calcMarked()">
-                            <div class="input-group-append">
-                                <span class="input-group-text" id="basic-addon2">%</span>
-                            </div>
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <div class="input-group">
-                                <span class="input-group-text">Marked Price: Rs. <span id="marked"></span></span>
-                            </div>
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Quantity in Stock" aria-label="Pieces in Stock"
-                                aria-describedby="basic-addon2" id="stock">
-                            <div class="input-group-append">
-                                <span class="input-group-text">Pieces</span>
-                            </div>
-                        </div>
+                        <ul style="list-style:none;" id="sales-list"></ul>
 
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Pieces Sold" aria-label="Pieces already sold"
@@ -171,21 +123,6 @@
                             <div class="input-group-append">
                                 <span class="input-group-text">Pieces</span>
                             </div>
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">Shelved</span>
-                            <select name="" id="shelved" class="custom-select">
-                                <option value="true" selected>Yes</option>
-                                <option value="false">No</option>
-                            </select>
-                        </div>
-
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Description</span>
-                            </div>
-                            <textarea class="form-control" aria-label="With textarea" id="description"></textarea>
                         </div>
 
                     </div>
@@ -213,7 +150,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <ul style="list-style:none;" id="prod-detail"></ul>
+                    <ul style="list-style:none;" id="sales-detail"></ul>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -258,13 +195,12 @@
         a.innerHTML += `<tr>
     <th scope="row">${name}</th>
     <td>${products[name].barcode}</td>
-    <td><span class="badge badge-success">${products[name].sold}</span></td>
+    <td><span class="badge badge-secondary">${products[name].sold}</span></td>
     <td>${products[name].date}</td>
     <td>Rs. ${products[name].revenue}</span></td>
     <td class="righto">
         <button type="button" data-toggle="modal" data-target="#viewSaleInfo" class="btn btn-primary" onclick="saleInfo('${name}')">View</button>
-        <button type="button" onclick="editProd('${name}')" class="btn btn-success">Add Sale</button>
-        <button type="button" class="btn btn-danger" onclick="deleteProd('${name}')">Delete</button>
+        <button type="button" onclick="addSale('${name}')" data-toggle="modal" data-target="#addSales" class="btn btn-success">Add Sale</button>
     </td>
 </tr>`;
     };
@@ -272,14 +208,25 @@
     function saleInfo(prodName) {
         document.getElementById("saleInfoHead").innerHTML = prodName;
         var x = products[prodName];
-        document.getElementById("prod-detail").innerHTML = `<li><b>Manufacturer:</b> ${x.manufacturer}</li>
+        document.getElementById("sales-detail").innerHTML = `<li><b>Manufacturer:</b> ${x.manufacturer}</li>
                         <li><b>Barcode:</b> ${x.barcode}</li>
                         <li><b>Pieces Sold:</b> ${x.sold}</li>
                         <li><b>Marked Price:</b>Rs. ${x.sp - (x.discount * 0.01 * x.sp)}</li>
                         <li><b>Profit:</b> Rs. ${x.profit}</li>
                         <li><b>Total Revenue:</b> Rs. ${x.revenue}</li>
-                        <li><b>Total Profit:</b> Rs. ${x.profit*x.sold}</li>`;
+                        <li><b>Total Profit:</b> Rs. ${x.profit * x.sold}</li>`;
     };
+
+    function addSale(pName) {
+        //document.getElementById("addProductBtn").click();
+        var x = products[pName];
+        document.getElementById("sales-list").innerHTML = `
+                        <li><b>Product:</b> ${pName}</li>
+                        <li><b>Manufacturer:</b> ${x.manufacturer}</li>
+                        <li><b>Barcode:</b> ${x.barcode}</li>
+                        <li><b>Marked Price:</b>Rs. ${x.sp - (x.discount * 0.01 * x.sp)}</li>
+                        <li><b>Profit per unit:</b> Rs. ${x.profit}</li>`;
+    }
 </script>
 
 <script src="firebaseLink.js"></script>
