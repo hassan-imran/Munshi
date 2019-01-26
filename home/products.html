@@ -325,6 +325,9 @@
         $('#stock')[0].value = x.stock;
         $('#sold')[0].value = x.sold;
         $('#description')[0].value = x.description;
+        document.getElementById("addNewProdBtn").addEventListener("click",(e)=>{
+            deleteProd(pName);
+        })
     }
 
     function clearModal(){
