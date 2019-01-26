@@ -10,15 +10,6 @@ firebase.initializeApp(config);
 
 (() => {
 
-    /*var user = firebase.auth().currentUser;
-    console.log(firebase.auth().currentUser);
-
-    if (!user) {
-        window.location.href = '../401.html';
-    }
-    else {
-    }*/
-
     firebase.auth().onAuthStateChanged(function (user) {
         if (!user) {
             window.location.href = '../401.html'
