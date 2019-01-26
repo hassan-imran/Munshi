@@ -282,29 +282,6 @@
                         <li><b>Description:</b> ${x.description}</li>`;
     };
 
-    /*document.getElementById("addNewProdBtn").addEventListener('click', (e) => {
-        var newProd = {
-            [$('#prodName').val()]: {
-                'manufacturer': $('#manufacturer').val(),
-                'barcode': $('#barcode').val(),
-                'cp': $('#cp').val(),
-                'discount': $('#discount').val(),
-                'sp': $('#sp').val(),
-                'shelved': $('#shelved').val(),
-                'stock': $('#stock').val(),
-                'sold': 0,
-                'description': $('#description').val(),
-                'date' : 'never',
-                'revenue' : 0,
-                'profit': 0,
-                'net': 0
-            }
-        };
-        Object.assign(products, newProd);
-        localStorage.products = JSON.stringify(products);
-        firebase.database().ref("/products/" + localStorage.token).update(newProd).then(() => reloadPage());
-    });*/
-
     document.getElementById("addNewProdBtn").addEventListener('click', (e) => {
         var newProd = {
             [$('#prodName').val()]: {
@@ -381,11 +358,6 @@
         c.value = (a - (a * 0.01 * b)).toFixed(2);
         document.getElementById('marked').innerHTML = c.value;
     }
-
-    /*document.getElementById('discount').addEventListener("change",(e)=>{
-        var i = document.getElementById('discount').value;
-        document.getElementById("marked").innerHTML = $('sp')[0].value - ($('sp')[0].value*0.01*i);
-    })*/
 
 </script>
 
