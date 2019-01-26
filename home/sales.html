@@ -118,11 +118,11 @@
                         <ul style="list-style:none;" id="sales-list"></ul>
 
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Pieces Sold" aria-label="Pieces already sold"
-                                aria-describedby="basic-addon2" id="sold">
                             <div class="input-group-append">
-                                <span class="input-group-text">Pieces</span>
+                                <span class="input-group-text">Units Sold</span>
                             </div>
+                            <input type="text" class="form-control" placeholder="in digits" aria-label="Pieces already sold"
+                                aria-describedby="basic-addon2" id="sold">
                         </div>
 
                     </div>
@@ -214,7 +214,8 @@
                         <li><b>Marked Price:</b>Rs. ${x.sp - (x.discount * 0.01 * x.sp)}</li>
                         <li><b>Profit:</b> Rs. ${x.profit}</li>
                         <li><b>Total Revenue:</b> Rs. ${x.revenue}</li>
-                        <li><b>Total Profit:</b> Rs. ${x.profit * x.sold}</li>`;
+                        <li><b>Total Profit:</b> Rs. ${x.profit * x.sold}</li>
+                        <li><b>Units in stock:</b> ${x.stock}</li>`;
     };
 
     function addSale(pName) {
@@ -225,7 +226,9 @@
                         <li><b>Manufacturer:</b> ${x.manufacturer}</li>
                         <li><b>Barcode:</b> ${x.barcode}</li>
                         <li><b>Marked Price:</b>Rs. ${x.sp - (x.discount * 0.01 * x.sp)}</li>
-                        <li><b>Profit per unit:</b> Rs. ${x.profit}</li>`;
+                        <li><b>Profit per unit:</b> Rs. ${x.profit}</li>
+                        <li><b>Units in stock:</b> ${x.stock}</li>`;
+        document.getElementById("sold").value = "";
     }
 </script>
 
