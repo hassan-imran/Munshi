@@ -223,8 +223,9 @@
         var x = products[prodName];
         document.getElementById("sales-detail").innerHTML = `<li><b>Manufacturer:</b> ${x.manufacturer}</li>
                         <li><b>Barcode:</b> ${x.barcode}</li>
-                        <li><b>Pieces Sold:</b> ${x.sold}</li>
-                        <li><b>Marked Price:</b>Rs. ${x.mp}</li>
+                        <li><b>Pieces Sold: </b> ${x.sold}</li>
+                        <li><b>Cost Price: </b>Rs. ${x.cp}</li>
+                        <li><b>Marked Price:</b> Rs. ${x.mp}</li>
                         <li><b>Profit:</b> Rs. ${x.profit}</li>
                         <li><b>Total Revenue:</b> Rs. ${x.mp * x.sold}</li>
                         <li><b>Total Profit:</b> Rs. ${x.profit * x.sold}</li>
