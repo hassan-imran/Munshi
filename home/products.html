@@ -142,25 +142,25 @@
 
                         <div class="input-group mb-3">
                             <div class="input-group">
-                                <span class="input-group-text">Marked Price: Rs.  <span id="marked"></span></span>
+                                <span class="input-group-text">Marked Price: Rs. <span id="marked"></span></span>
                             </div>
                         </div>
 
                         <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text">Units in Stock</span>
+                            </div>
                             <input type="text" class="form-control" placeholder="Quantity in Stock" aria-label="Pieces in Stock"
                                 aria-describedby="basic-addon2" id="stock">
-                            <div class="input-group-append">
-                                <span class="input-group-text">Pieces</span>
-                            </div>
                         </div>
 
-                        <div class="input-group mb-3">
+                        <!-- <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text">Pieces Sold</span>
+                            </div>
                             <input type="text" class="form-control" placeholder="Pieces Sold" aria-label="Pieces already sold"
                                 aria-describedby="basic-addon2" id="sold">
-                            <div class="input-group-append">
-                                <span class="input-group-text">Pieces</span>
-                            </div>
-                        </div>
+                        </div> -->
 
                         <div class="input-group mb-3">
                             <span class="input-group-text">Shelved</span>
@@ -192,8 +192,7 @@
     <!-- Modal for viewing info on Product-->
 
     <!-- Modal -->
-    <div class="modal fade" id="viewProdInfo" tabindex="-1" role="dialog"
-        aria-hidden="true">
+    <div class="modal fade" id="viewProdInfo" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -325,12 +324,12 @@
         $('#stock')[0].value = x.stock;
         $('#sold')[0].value = x.sold;
         $('#description')[0].value = x.description;
-        document.getElementById("addNewProdBtn").addEventListener("click",(e)=>{
+        document.getElementById("addNewProdBtn").addEventListener("click", (e) => {
             deleteProd(pName);
         })
     }
 
-    function clearModal(){
+    function clearModal() {
         $('#prodName')[0].value = '';
         $('#manufacturer')[0].value = '';
         $('#barcode')[0].value = '';
@@ -344,11 +343,11 @@
         $('#description')[0].value = '';
     }
 
-    function calcMarked(){
+    function calcMarked() {
         var a = document.getElementById("sp").value;
         var b = document.getElementById("discount").value;
         var c = document.getElementById("marked");
-        c.innerHTML = (a - (a*0.01*b)).toFixed(2);
+        c.innerHTML = (a - (a * 0.01 * b)).toFixed(2);
     }
 
     /*document.getElementById('discount').addEventListener("change",(e)=>{
