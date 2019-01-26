@@ -210,7 +210,7 @@
     <td>${products[name].barcode}</td>
     <td><span class="badge badge-secondary">${products[name].sold}</span></td>
     <td>${products[name].date}</td>
-    <td>Rs. ${products[name].mp*products[name].sold}</span></td>
+    <td>Rs. ${products[name].mp * products[name].sold}</span></td>
     <td class="righto">
         <button type="button" data-toggle="modal" data-target="#viewSaleInfo" class="btn btn-primary" onclick="saleInfo('${name}')">View</button>
         <button type="button" onclick="addProdSale('${name}')" data-toggle="modal" data-target="#addSales" class="btn btn-success">Add Sale</button>
@@ -246,9 +246,17 @@
 
     function addNewSale() {
         var pName = document.getElementById("addNewSale-Prod").innerHTML;
-            var x = products[pName];
-            $('date')[0].value = x.date;
-            $('sold')[0].value 
+        var x = products[pName];
+        x.sold = +x.sold + document.getElementById('sold').value;
+        x.date = document.getElementById('date').value;
+        x.stock = +document.getElementById('stock-added').value + x.stock - document.getElementById('sold').value;
+        
+        localStorage.products = JSON.stringify(products);
+        firebase.database().ref("/products/" + localStorage.token).update(products).then(() => reloadPage());
+    }
+
+    function reloadPage() {
+        window.location.reload();
     }
 </script>
 
