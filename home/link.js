@@ -20,8 +20,8 @@ else {
     document.getElementById('signoutBtn').addEventListener('click', (e) => {
         firebase.auth().signOut().then(
             () => {
-                window.location.href = '../index.html';
                 alert("You have signed out!");
+                window.location.href = '../index.html';
             }
         )
             .catch(

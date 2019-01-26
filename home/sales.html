@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 
-<body>
+<body style="display:none;">
 
 
 
@@ -186,6 +186,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
     crossorigin="anonymous"></script>
 
+<script src="link.js"></script>
+
 <script>
     var products, stores;
     if (!(localStorage.products && localStorage.stores)) {
@@ -250,7 +252,7 @@
         x.sold = +x.sold + document.getElementById('sold').value;
         x.date = document.getElementById('date').value;
         x.stock = +document.getElementById('stock-added').value + x.stock - document.getElementById('sold').value;
-        
+
         localStorage.products = JSON.stringify(products);
         firebase.database().ref("/products/" + localStorage.token).update(products).then(() => reloadPage());
     }
@@ -260,7 +262,7 @@
     }
 </script>
 
-<script src="link.js"></script>
+
 
 
 </html>

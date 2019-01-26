@@ -9,11 +9,11 @@ var config = {
 firebase.initializeApp(config);
 
 (() => {
-
     firebase.auth().onAuthStateChanged(function (user) {
         if (!user) {
-            window.location.href = '../401.html'
+            window.location.href = '../401.html';
         }
+        else { document.getElementsByTagName("body")[0].style.display = "block";}
     });
 
 })();
