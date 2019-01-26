@@ -324,10 +324,9 @@
             }
         };
         newProd[$(prodName).val()].profit = (newProd[$("#prodName").val()].mp-newProd[$("#prodName").val()].cp);
-        console.log(newProd);
-        //Object.assign(products, newProd);
-        //localStorage.products = JSON.stringify(products);
-        //firebase.database().ref("/products/" + localStorage.token).update(newProd).then(() => reloadPage());
+        Object.assign(products, newProd);
+        localStorage.products = JSON.stringify(products);
+        firebase.database().ref("/products/" + localStorage.token).update(newProd).then(() => reloadPage());
     });
 
     function reloadPage() {
