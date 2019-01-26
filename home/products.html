@@ -129,7 +129,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Cost Price Rps.</span>
                             </div>
-                            <input type="text" class="form-control" aria-label="Amount (to the nearest Rupee)"
+                            <input type="number" class="form-control" aria-label="Amount (to the nearest Rupee)"
                                 placeholder="Amount (to the nearest Rupee)" id="cp">
                         </div>
 
@@ -137,7 +137,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Selling Price Rps.</span>
                             </div>
-                            <input type="text" class="form-control" aria-label="Amount (to the nearest Rupee)"
+                            <input type="number" class="form-control" aria-label="Amount (to the nearest Rupee)"
                                 placeholder="Amount (to the nearest Rupee)" id="sp" oninput="calcMarked()">
                         </div>
 
@@ -145,7 +145,7 @@
                             <div class="input-group-append">
                                 <span class="input-group-text" id="basic-addon2">Discount</span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Discount" aria-label="Discount in percents"
+                            <input type="number" class="form-control" placeholder="in digits" aria-label="Discount in percents"
                                 aria-describedby="basic-addon2" id="discount" oninput="calcMarked()">
                             <div class="input-group-append">
                                 <span class="input-group-text" id="basic-addon2">%</span>
@@ -162,7 +162,7 @@
                             <div class="input-group-append">
                                 <span class="input-group-text">Units in Stock</span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Quantity in Stock" aria-label="Pieces in Stock"
+                            <input type="number" class="form-control" placeholder="in digits" aria-label="Pieces in Stock"
                                 aria-describedby="basic-addon2" id="stock">
                         </div>
 
