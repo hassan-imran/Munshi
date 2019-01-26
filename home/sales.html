@@ -224,9 +224,9 @@
         document.getElementById("sales-detail").innerHTML = `<li><b>Manufacturer:</b> ${x.manufacturer}</li>
                         <li><b>Barcode:</b> ${x.barcode}</li>
                         <li><b>Pieces Sold:</b> ${x.sold}</li>
-                        <li><b>Marked Price:</b>Rs. ${x.sp - (x.discount * 0.01 * x.sp)}</li>
+                        <li><b>Marked Price:</b>Rs. ${x.mp}</li>
                         <li><b>Profit:</b> Rs. ${x.profit}</li>
-                        <li><b>Total Revenue:</b> Rs. ${x.revenue}</li>
+                        <li><b>Total Revenue:</b> Rs. ${x.mp * x.sold}</li>
                         <li><b>Total Profit:</b> Rs. ${x.profit * x.sold}</li>
                         <li><b>Units in stock:</b> ${x.stock}</li>`;
     };

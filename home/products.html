@@ -156,6 +156,7 @@
                             <div class="input-group">
                                 <span class="input-group-text">Marked Price: Rs. <span id="marked"></span></span>
                             </div>
+                            <input type="number" style="display:none;" id="mp">
                         </div>
 
                         <div class="input-group mb-3">
@@ -281,7 +282,7 @@
                         <li><b>Description:</b> ${x.description}</li>`;
     };
 
-    document.getElementById("addNewProdBtn").addEventListener('click', (e) => {
+    /*document.getElementById("addNewProdBtn").addEventListener('click', (e) => {
         var newProd = {
             [$('#prodName').val()]: {
                 'manufacturer': $('#manufacturer').val(),
@@ -295,13 +296,38 @@
                 'description': $('#description').val(),
                 'date' : 'never',
                 'revenue' : 0,
-                'profit': ($('sp').val()-($("discount").val*0.01*$("sp"))-$("cp").val()),
+                'profit': 0,
                 'net': 0
             }
         };
         Object.assign(products, newProd);
         localStorage.products = JSON.stringify(products);
         firebase.database().ref("/products/" + localStorage.token).update(newProd).then(() => reloadPage());
+    });*/
+
+    document.getElementById("addNewProdBtn").addEventListener('click', (e) => {
+        var newProd = {
+            [$('#prodName').val()]: {
+                'manufacturer': document.getElementById('manufacturer').value,
+                'barcode': document.getElementById('barcode').value,
+                'cp': document.getElementById('cp').value,
+                'discount': document.getElementById('discount').value,
+                'sp': document.getElementById('sp').value,
+                'shelved': document.getElementById('shelved').value,
+                'stock': document.getElementById('stock').value,
+                'sold': 0,
+                'mp': document.getElementById('mp').value,
+                'description': document.getElementById('description').value,
+                'date': 'never',
+                'profit': 0,
+                'net': 0
+            }
+        };
+        newProd[$(prodName).val()].profit = (newProd[$("#prodName").val()].mp-newProd[$("#prodName").val()].cp);
+        console.log(newProd);
+        //Object.assign(products, newProd);
+        //localStorage.products = JSON.stringify(products);
+        //firebase.database().ref("/products/" + localStorage.token).update(newProd).then(() => reloadPage());
     });
 
     function reloadPage() {
@@ -330,7 +356,6 @@
         $('#shelved')[0].value = x.shelved;
         $('#sp')[0].value = x.sp;
         $('#stock')[0].value = x.stock;
-        $('#sold')[0].value = x.sold;
         $('#description')[0].value = x.description;
         document.getElementById("addNewProdBtn").addEventListener("click", (e) => {
             deleteProd(pName);
@@ -347,15 +372,15 @@
         $('#shelved')[0].value = '';
         $('#sp')[0].value = '';
         $('#stock')[0].value = '';
-        $('#sold')[0].value = '';
         $('#description')[0].value = '';
     }
 
     function calcMarked() {
         var a = document.getElementById("sp").value;
         var b = document.getElementById("discount").value;
-        var c = document.getElementById("marked");
-        c.innerHTML = (a - (a * 0.01 * b)).toFixed(2);
+        var c = document.getElementById("mp");
+        c.value = (a - (a * 0.01 * b)).toFixed(2);
+        document.getElementById('marked').innerHTML = c.value;
     }
 
     /*document.getElementById('discount').addEventListener("change",(e)=>{
