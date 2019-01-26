@@ -186,7 +186,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success" id="addNewProdBtn">Add</button>
+                    <button type="button" class="btn btn-success" onclick="addNewProd()" id="addNewProdBtn">Add</button>
                 </div>
             </div>
         </div>
@@ -282,7 +282,7 @@
                         <li><b>Description:</b> ${x.description}</li>`;
     };
 
-    document.getElementById("addNewProdBtn").addEventListener('click', (e) => {
+    function addNewProd() {
         var newProd = {
             [$('#prodName').val()]: {
                 'manufacturer': document.getElementById('manufacturer').value,
@@ -300,11 +300,11 @@
                 'net': 0
             }
         };
-        newProd[$(prodName).val()].profit = (newProd[$("#prodName").val()].mp-newProd[$("#prodName").val()].cp);
+        newProd[$(prodName).val()].profit = (newProd[$("#prodName").val()].mp - newProd[$("#prodName").val()].cp);
         Object.assign(products, newProd);
         localStorage.products = JSON.stringify(products);
         firebase.database().ref("/products/" + localStorage.token).update(newProd).then(() => reloadPage());
-    });
+    }
 
     function reloadPage() {
         window.location.reload();
@@ -334,7 +334,9 @@
         $('#stock')[0].value = x.stock;
         $('#description')[0].value = x.description;
         document.getElementById("addNewProdBtn").addEventListener("click", (e) => {
-            deleteProd(pName);
+            delete products[pName];
+            localStorage.products = JSON.stringify(products);
+            firebase.database().ref("/products/" + localStorage.token).set(products).then(addNewProd())
         })
     }
 
