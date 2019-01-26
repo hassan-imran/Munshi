@@ -108,7 +108,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Add New Product</h5>
+                    <h5 class="modal-title">Add New Sale</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -119,17 +119,30 @@
 
                         <div class="input-group mb-3">
                             <div class="input-group-append">
+                                <span class="input-group-text">Date of sale</span>
+                            </div>
+                            <input type="date" class="form-control" placeholder="in digits" aria-label="Pieces already sold"
+                                aria-describedby="basic-addon2" id="date">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
                                 <span class="input-group-text">Units Sold</span>
                             </div>
                             <input type="number" class="form-control" placeholder="in digits" aria-label="Pieces already sold"
                                 aria-describedby="basic-addon2" id="sold">
                         </div>
-
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text">Stock Added </span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="in digits" aria-label="Pieces already sold"
+                                aria-describedby="basic-addon2" id="stock-added" value="0">
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success" id="addNewProdBtn">Add</button>
+                    <button type="button" class="btn btn-success" onclick="addNewSale()">Add</button>
                 </div>
             </div>
         </div>
@@ -200,7 +213,7 @@
     <td>Rs. ${products[name].revenue}</span></td>
     <td class="righto">
         <button type="button" data-toggle="modal" data-target="#viewSaleInfo" class="btn btn-primary" onclick="saleInfo('${name}')">View</button>
-        <button type="button" onclick="addSale('${name}')" data-toggle="modal" data-target="#addSales" class="btn btn-success">Add Sale</button>
+        <button type="button" onclick="addProdSale('${name}')" data-toggle="modal" data-target="#addSales" class="btn btn-success">Add Sale</button>
     </td>
 </tr>`;
     };
@@ -218,17 +231,24 @@
                         <li><b>Units in stock:</b> ${x.stock}</li>`;
     };
 
-    function addSale(pName) {
+    function addProdSale(pName) {
         //document.getElementById("addProductBtn").click();
         var x = products[pName];
         document.getElementById("sales-list").innerHTML = `
-                        <li><b>Product:</b> ${pName}</li>
+                        <li><b>Product:</b> <span id="addNewSale-Prod">${pName}</span></li>
                         <li><b>Manufacturer:</b> ${x.manufacturer}</li>
                         <li><b>Barcode:</b> ${x.barcode}</li>
                         <li><b>Marked Price:</b>Rs. ${x.sp - (x.discount * 0.01 * x.sp)}</li>
                         <li><b>Profit per unit:</b> Rs. ${x.profit}</li>
                         <li><b>Units in stock:</b> ${x.stock}</li>`;
         document.getElementById("sold").value = "";
+    }
+
+    function addNewSale() {
+        var pName = document.getElementById("addNewSale-Prod").innerHTML;
+            var x = products[pName];
+            $('date')[0].value = x.date;
+            $('sold')[0].value 
     }
 </script>
 

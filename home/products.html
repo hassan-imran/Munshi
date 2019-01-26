@@ -166,14 +166,6 @@
                                 aria-describedby="basic-addon2" id="stock">
                         </div>
 
-                        <!-- <div class="input-group mb-3">
-                            <div class="input-group-append">
-                                <span class="input-group-text">Pieces Sold</span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Pieces Sold" aria-label="Pieces already sold"
-                                aria-describedby="basic-addon2" id="sold">
-                        </div> -->
-
                         <div class="input-group mb-3">
                             <span class="input-group-text">Shelved</span>
                             <select name="" id="shelved" class="custom-select">
@@ -299,8 +291,12 @@
                 'sp': $('#sp').val(),
                 'shelved': $('#shelved').val(),
                 'stock': $('#stock').val(),
-                'sold': $('#sold').val(),
+                'sold': 0,
                 'description': $('#description').val(),
+                'date' : 'never',
+                'revenue' : 0,
+                'profit': ($('sp').val()-($("discount").val*0.01*$("sp"))-$("cp").val());
+                'net': 0;
             }
         };
         Object.assign(products, newProd);
