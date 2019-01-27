@@ -9,11 +9,29 @@ var config = {
 firebase.initializeApp(config);
 
 (() => {
-    firebase.auth().onAuthStateChanged(function (user) {
+    var unsubscribe = firebase.auth().onAuthStateChanged(function (user) {
         if (!user) {
             window.location.href = '../401.html';
         }
-        else { document.getElementsByTagName("body")[0].style.display = "block";}
+        else {
+            document.getElementsByTagName("body")[0].style.display = "block";
+            document.getElementById('signoutBtn').addEventListener('click', (e) => {
+                unsubscribe();
+                firebase.auth().signOut().then(
+                    () => {
+                        alert("You have signed out!");
+                        window.location.href = '../index.html';
+                    }
+                )
+                    .catch(
+                        (e) => {
+                            var errorCode = error.code;
+                            var errorMessage = error.message;
+                            console.log(errorCode, errorMessage);
+                        }
+                    )
+            });
+        }
     });
 
 })();

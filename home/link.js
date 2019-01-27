@@ -16,20 +16,3 @@ else {
     stores = JSON.parse(localStorage.stores);
 }
 
-(() => {
-    document.getElementById('signoutBtn').addEventListener('click', (e) => {
-        firebase.auth().signOut().then(
-            () => {
-                alert("You have signed out!");
-                window.location.href = '../index.html';
-            }
-        )
-            .catch(
-                (e) => {
-                    var errorCode = error.code;
-                    var errorMessage = error.message;
-                    console.log(errorCode, errorMessage);
-                }
-            )
-    });
-})();
