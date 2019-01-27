@@ -249,7 +249,7 @@
     function addNewSale() {
         var pName = document.getElementById("addNewSale-Prod").innerHTML;
         var x = products[pName];
-        x.sold = +x.sold + document.getElementById('sold').value;
+        x.sold = (x.sold) + Number(document.getElementById('sold').value);
         x.date = document.getElementById('date').value;
         x.stock = +document.getElementById('stock-added').value + x.stock - document.getElementById('sold').value;
 
