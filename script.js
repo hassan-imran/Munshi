@@ -62,6 +62,8 @@ var firebaseRef = firebase.database();
                     email: newMail,
                     password: newPass
                 })
+                firebaseRef.ref("products/").child(localStorage.token).update({'0':''});
+                firebaseRef.ref("stores/").child(localStorage.token).update({'0':''});
             })
             .catch(function (error) {
                 var errorCode = error.code;

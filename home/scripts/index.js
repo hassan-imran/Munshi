@@ -27,5 +27,8 @@ function totalSales() {
     for (name in products) {
         i += products[name].sold;
     }
-    return i;
+    if (!i) {
+        return 0;
+    }
+    else return i;
 }

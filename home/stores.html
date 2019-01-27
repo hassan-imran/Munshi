@@ -49,7 +49,8 @@
         <div class="container">
             <h1 class="display-4">Your Stores</h1>
             <hr>
-            <p class="lead"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addCategory" id="addNewStoreBtn">Add
+            <p class="lead"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addStore"
+                    id="addNewStoreBtn">Add
                     New Store</button></p>
         </div>
     </div>
@@ -105,6 +106,57 @@
             </div>
         </div>
     </div>
+
+
+
+    <!-- Modal for adding Sales -->
+
+    <div class="modal fade" id="addStore" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Sale</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="addProductForm">
+                        <ul style="list-style:none;" id="sales-list"></ul>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text">Date of sale</span>
+                            </div>
+                            <input type="date" class="form-control" placeholder="in digits" aria-label="Pieces already sold"
+                                aria-describedby="basic-addon2" id="date">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text">Units Sold</span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="in digits" aria-label="Pieces already sold"
+                                aria-describedby="basic-addon2" id="sold">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text">Stock Added </span>
+                            </div>
+                            <input type="number" class="form-control" placeholder="in digits" aria-label="Pieces already sold"
+                                aria-describedby="basic-addon2" id="stock-added" value="0">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" onclick="addNewSale()">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End of Modal for adding products -->
 
 
 
