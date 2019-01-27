@@ -186,21 +186,6 @@
 <script src="link.js"></script>
 
 <script>
-    var products, stores;
-    if (!(localStorage.products && localStorage.stores)) {
-        firebase.database().ref("products/" + localStorage.token).once('value').then((snapshot) => {
-            localStorage.products = JSON.stringify(snapshot.val());
-            products = JSON.parse(localStorage.products);
-        });
-        firebase.database().ref("stores/" + localStorage.token).once('value').then((snapshot) => {
-            localStorage.stores = JSON.stringify(snapshot.val());
-            stores = JSON.parse(localStorage.stores);
-        });
-    }
-    else {
-        products = JSON.parse(localStorage.products);
-        stores = JSON.parse(localStorage.stores);
-    }
     var a = document.getElementById("sales-table").getElementsByTagName("tbody")[0];
     //var b = 0;
     for (let name in products) {
