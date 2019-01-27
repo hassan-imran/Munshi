@@ -62,8 +62,28 @@ var firebaseRef = firebase.database();
                     email: newMail,
                     password: newPass
                 })
-                firebaseRef.ref("products/").child(localStorage.token).update({'0':''});
-                firebaseRef.ref("stores/").child(localStorage.token).update({'0':''});
+                firebaseRef.ref("products/").child(localStorage.token).update({
+                    "Sample": {
+                        "barcode": "1234567891011",
+                        "cp": "200",
+                        "date": "2019-1-1",
+                        "description": "nice sample",
+                        "discount": "5",
+                        "manufacturer": "abc manufacturers",
+                        "mp": 247,
+                        "profit": 47,
+                        "shelved": "true",
+                        "sold": 4,
+                        "sp": "260",
+                        "stock": "10"
+                    }
+                });
+                firebaseRef.ref("stores/").child(localStorage.token).update({
+                    "City Branch": {
+                        "address": "C-123, Block D, New York, USA",
+                        "products": [0]
+                    }
+                });
             })
             .catch(function (error) {
                 var errorCode = error.code;
