@@ -15,4 +15,3 @@ else {
     products = JSON.parse(localStorage.products);
     stores = JSON.parse(localStorage.stores);
 }
-

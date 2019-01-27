@@ -81,10 +81,10 @@
                     <p class="card-text">
                         <ul class="list-group list-group-flush">
                             <a href="">
-                                <li class="list-group-item">Products low on stock: 4</li>
+                                <li class="list-group-item">Products low on stock: <span id="low-stock"></span></li>
                             </a>
                             <a href="">
-                                <li class="list-group-item">Current Discounted Products: 10</li>
+                                <li class="list-group-item">Current Discounted Products: <span id="discounted"></span></li>
                             </a>
                             <li class="list-group-item centero">
                                 <a href="products.html#addProductBtn"><button type="button" class="btn btn-success">Add
@@ -106,7 +106,7 @@
                     <h5 class="card-title">Your Stores</h5>
                     <p class="card-text">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Current Stores: 2</li>
+                            <li class="list-group-item">Current Stores: <span id="stores"></span></li>
                             <a href="stores.html">
                                 <li class="list-group-item">View existing stores</li>
                             </a>
@@ -135,6 +135,33 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
     crossorigin="anonymous"></script>
 
+
+
 <script src="link.js"></script>
+
+<script>
+    document.getElementById('stores').innerHTML = Object.keys(stores).length;
+    document.getElementById('low-stock').innerHTML = lowStock();
+    document.getElementById('discounted').innerHTML = discounted();
+    
+    function lowStock() {
+        var i = 0;
+        for (name in products) {
+            if ((products[name].stock) < 10) {
+                i++;
+            }
+        }
+        return i;
+    }
+    function discounted() {
+        var i = 0;
+        for (name in products) {
+            if ((products[name].discount) > 0) {
+                i++;
+            }
+        }
+        return i;
+    }
+</script>
 
 </html>

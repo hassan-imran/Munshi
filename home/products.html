@@ -240,13 +240,19 @@
                     <td>${products[name].manufacturer}</td>
                     <td>${products[name].barcode}</td>
                     <td><span class="act-price">Rs. ${products[name].sp}</span><br><span class="error dis-price" style="display:none;">Rs. ${products[name].sp - (products[name].discount * 0.01 * products[name].sp)}</span></td>
-                    <td><span class="badge badge-success">${products[name].stock}</span></td>
+                    <td>${lowStock()}</td>
                     <td class="righto">
                         <button type="button" data-toggle="modal" data-target="#viewProdInfo" class="btn btn-secondary" onclick="prodInfo('${name}')">View</button>
                         <button type="button" onclick="editProd('${name}')" class="btn btn-primary">Edit</button>
                         <button type="button" class="btn btn-danger" onclick="deleteProd('${name}')">Delete</button>
                     </td>
                 </tr>`;
+        function lowStock() {
+            if (products[name].stock<10){
+                return `<span class="badge badge-danger">${products[name].stock}</span>`;
+            }
+            else return `<span class="badge badge-success">${products[name].stock}</span>`;
+        }
         if (products[name].discount != 0) {
             document.getElementsByClassName("act-price")[b].style.textDecoration = "line-through";
             document.getElementsByClassName("dis-price")[b].style.display = "inline";
