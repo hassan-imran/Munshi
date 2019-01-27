@@ -14,7 +14,7 @@ firebase.initializeApp(config);
             window.location.href = '../401.html';
         }
         else {
-            document.getElementsByTagName("body")[0].style.display = "block";
+            //document.getElementsByTagName("body")[0].style.display = "block";
             document.getElementById('signoutBtn').addEventListener('click', (e) => {
                 unsubscribe();
                 firebase.auth().signOut().then(
