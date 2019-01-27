@@ -19,6 +19,7 @@ firebase.initializeApp(config);
                 unsubscribe();
                 firebase.auth().signOut().then(
                     () => {
+                        localStorage.clear();
                         alert("You have signed out!");
                         window.location.href = '../index.html';
                     }
