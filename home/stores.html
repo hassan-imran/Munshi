@@ -55,10 +55,9 @@
         </div>
     </div>
 
-
+    <!--Apply css to this div-->
     <div id="store-details">
-        <div class="card-deck">
-            <div class="card" style="width: 18rem;">
+        <!-- <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <a href="">
                         <h5 class="card-title">Safoora Branch</h5>
@@ -102,9 +101,8 @@
                 <div class="card-body">
                     <button type="button" class="btn btn-secondary">View</button>
                     <button type="button" class="btn btn-danger">Remove</button>
-                </div>
-            </div>
-        </div>
+                </div> -->
+    </div>
     </div>
 
 
@@ -139,18 +137,11 @@
                             <input type="text" class="form-control" placeholder="" aria-label="Pieces already sold"
                                 aria-describedby="basic-addon2" id="address">
                         </div>
-                        <!-- <div class="input-group mb-3">
-                            <div class="input-group-append">
-                                <span class="input-group-text">Stock Added </span>
-                            </div>
-                            <input type="number" class="form-control" placeholder="in digits" aria-label="Pieces already sold"
-                                aria-describedby="basic-addon2" id="stock-added" value="0">
-                        </div> -->
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success" onclick="addNewSale()">Add</button>
+                    <button type="button" class="btn btn-success" onclick="addNewStore()">Add</button>
                 </div>
             </div>
         </div>
@@ -171,5 +162,35 @@
 
 <script src="link.js"></script>
 
+<script>
+
+    var a = document.getElementById("store-details");
+    //var b = 0;
+    for (let name in stores) {
+        a.innerHTML += `<div class="card-body">
+                    <a href="">
+                        <h5 class="card-title">${name}</h5>
+                    </a>
+                    <p class="card-text">${stores[name].address}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <a href="">
+                        <li class="list-group-item">Total Categories: 10</li>
+                    </a>
+                    <a href="">
+                        <li class="list-group-item">Total Products: 30</li>
+                    </a>
+                    <a href="">
+                        <li class="list-group-item">Total Sales</li>
+                    </a>
+                </ul>
+                <div class="card-body">
+                    <button type="button" class="btn btn-secondary">View</button>
+                    <button type="button" class="btn btn-danger">Remove</button>
+                </div>
+            </div>`;
+    };
+
+</script>
 
 </html>
