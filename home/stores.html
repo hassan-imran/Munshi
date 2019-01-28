@@ -202,7 +202,7 @@
                 </ul>
                 <div class="card-body">
                     <button type="button" class="btn btn-secondary" onclick="storeInfo('${name}')" data-toggle="modal" data-target="#viewStoreInfo">View</button>
-                    <button type="button" class="btn btn-danger">Remove</button>
+                    <button type="button" class="btn btn-danger" onclick="deleteStore('${name}')">Remove</button>
                 </div>
             </div></div>`;
     };
@@ -221,10 +221,16 @@
                 'address': document.getElementById('address').value
             }
         };
-        Object.assign(stores,newStore);
+        Object.assign(stores, newStore);
         localStorage.stores = JSON.stringify(stores);
         firebase.database().ref("/stores/" + localStorage.token).update(stores).then(() => window.location.reload(false));
     }
+
+    function deleteStore(name) {
+        delete stores[name];
+        localStorage.stores = JSON.stringify(stores);
+        firebase.database().ref("/stores/" + localStorage.token).set(stores).then(() => window.location.reload(false));
+    };
 
 </script>
 
