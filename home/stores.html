@@ -107,7 +107,7 @@
 
 
 
-    <!-- Modal for adding Sales -->
+    <!-- Modal for adding Store -->
 
     <div class="modal fade" id="addStore" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
@@ -147,7 +147,31 @@
         </div>
     </div>
 
-    <!-- End of Modal for adding products -->
+    <!-- End of Modal for adding Store -->
+
+    <!-- Modal for viewing info on Sales-->
+
+    <!-- Modal -->
+    <div class="modal fade" id="viewStoreInfo" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="storeInfoHead"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul style="list-style:none;" id="store-info"></ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End of Modal for viewing info on stores-->
 
 
 
@@ -167,7 +191,7 @@
     var a = document.getElementById("store-details");
     //var b = 0;
     for (let name in stores) {
-        a.innerHTML += `<div class="card-body">
+        a.innerHTML += `<div class="card" style="width: 18rem;"><div class="card-body">
                     <a href="">
                         <h5 class="card-title">${name}</h5>
                     </a>
@@ -175,20 +199,21 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <a href="">
-                        <li class="list-group-item">Total Categories: 10</li>
-                    </a>
-                    <a href="">
-                        <li class="list-group-item">Total Products: 30</li>
-                    </a>
-                    <a href="">
-                        <li class="list-group-item">Total Sales</li>
+                        <li class="list-group-item">Products low on stock: 2</li>
                     </a>
                 </ul>
                 <div class="card-body">
-                    <button type="button" class="btn btn-secondary">View</button>
+                    <button type="button" class="btn btn-secondary" onclick="storeInfo('${name}')" data-toggle="modal" data-target="#viewStoreInfo">View</button>
                     <button type="button" class="btn btn-danger">Remove</button>
                 </div>
-            </div>`;
+            </div></div>`;
+    };
+
+    function storeInfo(sName) {
+        document.getElementById("storeInfoHead").innerHTML = sName;
+        var x = stores[sName];
+        document.getElementById("store-info").innerHTML = `
+            <li><b></b></li>`;
     };
 
 </script>
