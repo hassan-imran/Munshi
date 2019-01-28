@@ -192,9 +192,7 @@
     //var b = 0;
     for (let name in stores) {
         a.innerHTML += `<div class="card" style="width: 18rem;"><div class="card-body">
-                    <a href="">
-                        <h5 class="card-title">${name}</h5>
-                    </a>
+                    <h5 class="card-title">${name}</h5>
                     <p class="card-text">${stores[name].address}</p>
                 </div>
                 <ul class="list-group list-group-flush">
@@ -213,7 +211,8 @@
         document.getElementById("storeInfoHead").innerHTML = sName;
         var x = stores[sName];
         document.getElementById("store-info").innerHTML = `
-            <li><b></b></li>`;
+            <li><b>Address: </b>${x.address}</li>
+            <li><b>Total Products: </b></li>`;
     };
 
 </script>
