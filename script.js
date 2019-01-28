@@ -74,7 +74,7 @@ var firebaseRef = firebase.database();
                         "profit": 47,
                         "sold": 4,
                         "sp": "260",
-                        "stock": "10"
+                        "stock": 10
                     }
                 });
                 firebaseRef.ref("stores/").child(localStorage.token).update({
