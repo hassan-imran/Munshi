@@ -57,17 +57,14 @@
     <div id="table-container" class="table-responsive" style="max-width:980px;">
 
 
-        <!-- <div>
-            <span><b>View Category: </b></span>
-            <select name="" id="" class="custom-select" style="max-width:300px;">
+        <div>
+            <span><b>View Store-wise: </b></span>
+            <select name="" id="filter" class="custom-select" style="max-width:300px;">
                 <option value="" selected>All</option>
-                <option value="">healthcare</option>
-                <option value="">beauty</option>
-                <option value="">men's fashion</option>
             </select>
         </div>
 
-        <hr> -->
+        <hr>
 
         <table class="table table-striped" id="prod-table">
             <thead>
@@ -221,10 +218,11 @@
 
 <script>
 
-    var a = document.getElementById("prod-table").getElementsByTagName("tbody")[0];
-    var b = 0;
-    for (let name in products) {
-        a.innerHTML += `<tr>
+    (() => {
+        var a = document.getElementById("prod-table").getElementsByTagName("tbody")[0];
+        var b = 0;
+        for (let name in products) {
+            a.innerHTML += `<tr>
                     <th scope="row">${name}</th>
                     <td>${products[name].manufacturer}</td>
                     <td>${products[name].barcode}</td>
@@ -236,18 +234,24 @@
                         <button type="button" class="btn btn-danger" onclick="deleteProd('${name}')">Delete</button>
                     </td>
                 </tr>`;
-        function lowStock() {
-            if (products[name].stock<10){
-                return `<span class="badge badge-danger">${products[name].stock}</span>`;
+            function lowStock() {
+                if (products[name].stock < 10) {
+                    return `<span class="badge badge-danger">${products[name].stock}</span>`;
+                }
+                else return `<span class="badge badge-success">${products[name].stock}</span>`;
             }
-            else return `<span class="badge badge-success">${products[name].stock}</span>`;
+            if (products[name].discount != 0) {
+                document.getElementsByClassName("act-price")[b].style.textDecoration = "line-through";
+                document.getElementsByClassName("dis-price")[b].style.display = "inline";
+            }
+            b++;
+        };
+
+        var i = document.getElementById("filter");
+        for (let name in stores){
+            i.innerHTML += `<option>${name}</option>`;
         }
-        if (products[name].discount != 0) {
-            document.getElementsByClassName("act-price")[b].style.textDecoration = "line-through";
-            document.getElementsByClassName("dis-price")[b].style.display = "inline";
-        }
-        b++;
-    };
+    })()
 
     function prodInfo(prodName) {
         document.getElementById("prodInfoHead").innerHTML = prodName;
