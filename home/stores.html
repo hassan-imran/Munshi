@@ -212,7 +212,7 @@
         var x = stores[sName];
         document.getElementById("store-info").innerHTML = `
             <li><b>Address: </b>${x.address}</li>
-            <li><b>Total Products: </b></li>`;
+            <li><b>Total Products: </b>${Object.keys(x.products).length}</li>`;
     };
 
     function addNewStore() {
