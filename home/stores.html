@@ -215,6 +215,17 @@
             <li><b>Total Products: </b></li>`;
     };
 
+    function addNewStore() {
+        var newStore = {
+            [$('#branch').val()]: {
+                'address': document.getElementById('address').value
+            }
+        };
+        Object.assign(stores,newStore);
+        localStorage.stores = JSON.stringify(stores);
+        firebase.database().ref("/stores/" + localStorage.token).update(stores).then(() => window.location.reload(false));
+    }
+
 </script>
 
 </html>
