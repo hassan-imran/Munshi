@@ -9,6 +9,8 @@ var config = {
 };
 firebase.initializeApp(config);
 
+// for the functionality of the tabs on the index page
+
 document.getElementById("signUpButton").addEventListener("click", (e) => {
     var a = document.getElementById("sign-in");
     var b = document.getElementById("sign-up");
@@ -62,6 +64,7 @@ var firebaseRef = firebase.database();
                     email: newMail,
                     password: newPass
                 })
+                //pushing of sample data
                 firebaseRef.ref("products/").child(localStorage.token).update({
                     "Sample": {
                         "barcode": "1234567891011",
