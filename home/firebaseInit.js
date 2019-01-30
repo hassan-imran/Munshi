@@ -8,13 +8,14 @@ var config = {
 };
 firebase.initializeApp(config);
 
+// this file initializes firebase and puts an event listener on the signout button
+
 (() => {
     var unsubscribe = firebase.auth().onAuthStateChanged(function (user) {
         if (!user) {
             window.location.href = '../401.html';
         }
         else {
-            //document.getElementsByTagName("body")[0].style.display = "block";
             document.getElementById('signoutBtn').addEventListener('click', (e) => {
                 unsubscribe();
                 firebase.auth().signOut().then(

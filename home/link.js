@@ -1,4 +1,4 @@
-
+// the purpose of this file is to take the data, of the specific user, from the database and store it into variables for future use
 
 var products, stores;
 if (!(localStorage.products && localStorage.stores) || (localStorage.products == null || localStorage.stores == null)) {
