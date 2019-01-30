@@ -1,7 +1,11 @@
 # Munshi
 
 
-This is a concept Inventory Management System (IMS) application.
+This is a concept Inventory Management System (IMS) web-based application using HTML, CSS, JS, BootStrap, Firebase RealTime Database.
+
+*****
+
+##Purpose
 
 The purpose of it is to 
 
@@ -60,3 +64,9 @@ Upon signup or sign in the dashboard page takes  a little long to load. The reas
 ## Low Stock
 
 If the stock is lower than 10 then it appears in red indicating that  the stock is low and should be topped up again
+
+*****
+
+## Project is still developing
+
+We are still working on this projcet to make sub-inventories of each store that can be managed individually
