@@ -58,22 +58,10 @@
 
     <div id="table-container" class="table-responsive" style="max-width:980px;">
 
-        <!-- <div style=" display: inline-block;">
-            <span><b>View Category: </b></span>
-            <select name="" id="" class="custom-select" style="max-width:300px; display: inline-block;">
-                <option value="" selected>All</option>
-                <option value="">healthcare</option>
-                <option value="">beauty</option>
-                <option value="">men's fashion</option>
-            </select>
-        </div> -->
-
-        <div style=" display: inline-block;">
-            <span><b>View Store: </b></span>
-            <select name="" id="" class="custom-select" style="max-width:300px;">
-                <option value="" selected>Total</option>
-                <option value="">Gulshan</option>
-                <option value="">Hassan Square</option>
+        <div>
+            <span><b>View Store-wise: </b></span>
+            <select name="" id="filter" class="custom-select" style="max-width:300px;">
+                <option value="all" selected>All</option>
             </select>
         </div>
 
@@ -201,6 +189,77 @@
     </td>
 </tr>`;
     };
+
+    (() => {
+
+        var i = document.getElementById("filter");
+        for (let name in stores) {
+            i.innerHTML += `<option value"${name}">${name}</option>`;
+        }
+
+        i.addEventListener('change', (e) => {
+            var x = i.value;
+            if (x == "all") {
+                document.getElementById("sales-table").getElementsByTagName("tbody")[0] = '';
+                all();
+            }
+            else {
+                document.getElementById("sales-table").getElementsByTagName("tbody")[0] = '';
+                storeSales(x);
+            }
+        });
+
+        function all() {
+            var a = document.getElementById("sales-table").getElementsByTagName("tbody")[0];
+            a.innerHTML = '';
+            for (let name in products) {
+                a.innerHTML += `<tr>
+    <th scope="row">${name}</th>
+    <td>${products[name].barcode}</td>
+    <td><span class="badge badge-secondary">${products[name].sold}</span></td>
+    <td>${products[name].date}</td>
+    <td>Rs. ${products[name].mp * products[name].sold}</span></td>
+    <td class="righto">
+        <button type="button" data-toggle="modal" data-target="#viewSaleInfo" class="btn btn-primary" onclick="saleInfo('${name}')">View</button>
+        <button type="button" onclick="addProdSale('${name}')" data-toggle="modal" data-target="#addSales" class="btn btn-success">Add Sale</button>
+    </td>
+</tr>`;
+            };
+            emptyTableCheck();
+        }
+
+        all();
+
+        function storeSales(storeName) {
+            var a = document.getElementById("sales-table").getElementsByTagName("tbody")[0];
+            a.innerHTML = '';
+            var b = 0;
+            for (let name in products) {
+                if (stores[storeName].products[name]) {
+                    a.innerHTML += `<tr>
+    <th scope="row">${name}</th>
+    <td>${products[name].barcode}</td>
+    <td><span class="badge badge-secondary">${products[name].sold}</span></td>
+    <td>${products[name].date}</td>
+    <td>Rs. ${products[name].mp * products[name].sold}</span></td>
+    <td class="righto">
+        <button type="button" data-toggle="modal" data-target="#viewSaleInfo" class="btn btn-primary" onclick="saleInfo('${name}')">View</button>
+        <button type="button" onclick="addProdSale('${name}')" data-toggle="modal" data-target="#addSales" class="btn btn-success">Add Sale</button>
+    </td>
+</tr>`;
+                }
+            };
+            emptyTableCheck();
+        };
+
+        function emptyTableCheck() {
+            var a = document.getElementById("sales-table").getElementsByTagName("tbody")[0];
+            if (a.innerHTML == '') {
+                a.innerHTML = `<tr><td colspan='6' style='text-align:center;'><h5>No products available! Add some new products</h5></td></tr>`;
+            }
+        }
+
+    })()
 
     function saleInfo(prodName) {
         document.getElementById("saleInfoHead").innerHTML = prodName;
