@@ -187,15 +187,15 @@
         var x = stores[name];
         $('#branch')[0].value = name;
         $('#address')[0].value = x.address;
-        
+
         document.getElementById("confirm-add-store").addEventListener("click", editStorelistenerFunction)
     }
 
     var editStorelistenerFunction = (e) => {
-            delete stores[name];
-            localStorage.stores = JSON.stringify(stores);
-            firebase.database().ref("/stores/" + localStorage.token).set(stores)
-        };
+        delete stores[name];
+        localStorage.stores = JSON.stringify(stores);
+        firebase.database().ref("/stores/" + localStorage.token).set(stores)
+    };
 
     function deleteStore(name) {
         delete stores[name];
