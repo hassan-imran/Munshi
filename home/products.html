@@ -78,6 +78,9 @@
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>No products to show</td>
+                </tr>
             </tbody>
         </table>
 
@@ -219,6 +222,24 @@
 <script>
 
     (() => {
+
+        var i = document.getElementById("filter");
+        for (let name in stores) {
+            i.innerHTML += `<option value"${name}">${name}</option>`;
+        }
+
+        i.addEventListener('change', (e) => {
+            var x = i.value;
+            if (x == "all") {
+                document.getElementById("prod-table").getElementsByTagName("tbody")[0] = '';
+                all();
+            }
+            else {
+                document.getElementById("prod-table").getElementsByTagName("tbody")[0] = '';
+                storeProducts(x);
+            }
+        });
+
         function all() {
             var a = document.getElementById("prod-table").getElementsByTagName("tbody")[0];
             a.innerHTML = '';
@@ -248,26 +269,10 @@
                 }
                 b++;
             };
+            emptyTableCheck();
         }
 
         all();
-
-        var i = document.getElementById("filter");
-        for (let name in stores) {
-            i.innerHTML += `<option value"${name}">${name}</option>`;
-        }
-
-        i.addEventListener('change', (e) => {
-            var x = i.value;
-            if (x == "all") {
-                document.getElementById("prod-table").getElementsByTagName("tbody")[0] = '';
-                all();
-            }
-            else {
-                document.getElementById("prod-table").getElementsByTagName("tbody")[0] = '';
-                storeProducts(x);
-            }
-        })
 
         function storeProducts(storeName) {
             var a = document.getElementById("prod-table").getElementsByTagName("tbody")[0];
@@ -300,6 +305,14 @@
                     b++;
                 }
             };
+            emptyTableCheck();
+        };
+
+        function emptyTableCheck() {
+            var a = document.getElementById("prod-table").getElementsByTagName("tbody")[0];
+            if (a.innerHTML == '') {
+                a.innerHTML = `<tr><td colspan='6' style='text-align:center;'><h5>No products available! Add some new products</h5></td></tr>`;
+            }
         }
 
     })()
