@@ -24,6 +24,11 @@ The purpose of it is to
 
 5. Viewing Complete inventory / stock
 
+*********
+
+## The Project is live at
+
+munshi-ims.firebaseapp.com
 
 ************
 
