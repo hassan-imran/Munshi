@@ -174,21 +174,7 @@
 <script src="link.js"></script>
 
 <script>
-    var a = document.getElementById("sales-table").getElementsByTagName("tbody")[0];
-    //var b = 0;
-    for (let name in products) {
-        a.innerHTML += `<tr>
-    <th scope="row">${name}</th>
-    <td>${products[name].barcode}</td>
-    <td><span class="badge badge-secondary">${products[name].sold}</span></td>
-    <td>${products[name].date}</td>
-    <td>Rs. ${products[name].mp * products[name].sold}</span></td>
-    <td class="righto">
-        <button type="button" data-toggle="modal" data-target="#viewSaleInfo" class="btn btn-primary" onclick="saleInfo('${name}')">View</button>
-        <button type="button" onclick="addProdSale('${name}')" data-toggle="modal" data-target="#addSales" class="btn btn-success">Add Sale</button>
-    </td>
-</tr>`;
-    };
+    
 
     (() => {
 
