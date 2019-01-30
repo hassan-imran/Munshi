@@ -77,4 +77,4 @@ We are still working on this projcet to make sub-inventories of each store that 
 
 This project uses Firebase realtime database.
 
-Here is a [sample](data-structure) about how the data is strucured in the database
+Here is a [sample](data-structure.json) about how the data is strucured in the database
