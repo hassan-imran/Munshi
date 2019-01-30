@@ -70,3 +70,11 @@ If the stock is lower than 10 then it appears in red indicating that  the stock 
 ## Project is still developing
 
 We are still working on this projcet to make sub-inventories of each store that can be managed individually
+
+********
+
+## Data-Structure & Database
+
+This project uses Firebase realtime database.
+
+Here is a [sample](data-structure) about how the data is strucured in the database

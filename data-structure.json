@@ -1,0 +1,159 @@
+{
+  "products" : {
+    "8OOdqUUxrNhuIELdBo7p7GBeYZ63" : {
+      "Lifebouy Shampoo" : {
+        "barcode" : "74863274323247",
+        "cp" : "200",
+        "date" : "20-1-2019",
+        "description" : "nice shampoo",
+        "discount" : "5",
+        "manufacturer" : "P&G",
+        "mp" : 247,
+        "profit" : 47,
+        "sold" : 4,
+        "sp" : "260",
+        "stock" : "30"
+      },
+      "Samsung S6" : {
+        "barcode" : "37463746287462",
+        "cp" : "40000",
+        "date" : "2019-01-27",
+        "description" : "64GB",
+        "discount" : "5",
+        "manufacturer" : "Samsung China",
+        "mp" : 57000,
+        "profit" : 17000,
+        "sold" : 0,
+        "sp" : "60000",
+        "stock" : 3
+      },
+      "abc" : {
+        "barcode" : "123",
+        "cp" : "130",
+        "date" : "2019-01-27",
+        "description" : "skdmkla",
+        "discount" : "15",
+        "manufacturer" : "def",
+        "mp" : "170.00",
+        "net" : 0,
+        "profit" : 40,
+        "sold" : 2,
+        "sp" : "200",
+        "stock" : 8
+      },
+      "philips trimmer" : {
+        "barcode" : "72193912834782",
+        "cp" : 2000,
+        "date" : "20-1-2019",
+        "description" : "this is a great product and whatever",
+        "discount" : 30,
+        "manufacturer" : "Philips",
+        "mp" : 2100,
+        "profit" : 100,
+        "sold" : 2,
+        "sp" : 3000,
+        "stock" : 5
+      },
+      "vaseline lotion" : {
+        "barcode" : "12832971838217",
+        "cp" : 190,
+        "date" : "2019-01-28",
+        "description" : "this is a great lotion and whatever",
+        "discount" : 0,
+        "manufacturer" : "P&G",
+        "mp" : 200,
+        "profit" : 10,
+        "sold" : 40,
+        "sp" : 200,
+        "stock" : 20
+      }
+    },
+    "hWzHUYH3Vfdq0VUN3rtUaGwXfc62" : {
+      "Sample" : {
+        "barcode" : "1234567891011",
+        "cp" : "200",
+        "date" : "2019-01-28",
+        "description" : "nice sample",
+        "discount" : "5",
+        "manufacturer" : "abc manufacturers",
+        "mp" : "",
+        "net" : 0,
+        "profit" : -200,
+        "sold" : 5,
+        "sp" : "260",
+        "stock" : 15
+      },
+      "sample2" : {
+        "barcode" : "dnmwl",
+        "cp" : "813421",
+        "date" : "2019-01-27",
+        "description" : "so",
+        "discount" : "10",
+        "manufacturer" : "dmaslkd",
+        "mp" : "900000.00",
+        "net" : 0,
+        "profit" : 86579,
+        "sold" : 1,
+        "sp" : "1000000",
+        "stock" : 10
+      }
+    }
+  },
+  "stores" : {
+    "8OOdqUUxrNhuIELdBo7p7GBeYZ63" : {
+      "Safoora Branch" : {
+        "address" : "C-130, Block 12, Gulistan e Johar, University Road, Karachi",
+        "products" : {
+          "Samsung S6" : {
+            "date" : "never",
+            "sold" : 0,
+            "stock" : 1
+          },
+          "philips trimmer" : {
+            "date" : "20-1-2019",
+            "manufacturer" : "Philips",
+            "sold" : 1,
+            "stock" : 3
+          },
+          "vaseline lotion" : {
+            "date" : "20-1-2019",
+            "sold" : 5,
+            "stock" : 2
+          }
+        }
+      },
+      "Saima Villas Branch" : {
+        "address" : "E-180, block - D, st - 28, Saima Villas, Karachi",
+        "products" : {
+          "abc" : {
+            "date" : "2019-01-27",
+            "sold" : 2,
+            "stock" : 8
+          }
+        }
+      },
+      "hassan square branch" : {
+        "address" : "C-10, Block 3, Gulhan, University Road, Karachi",
+        "products" : [ 1 ]
+      }
+    },
+    "hWzHUYH3Vfdq0VUN3rtUaGwXfc62" : {
+      "City Branch" : {
+        "address" : "C-123, Block D, New York, USA",
+        "products" : [ 0 ]
+      }
+    }
+  },
+  "users" : {
+    "8OOdqUUxrNhuIELdBo7p7GBeYZ63" : {
+      "email" : "admin@abc.com",
+      "name" : "admin",
+      "password" : "admin123"
+    },
+    "hWzHUYH3Vfdq0VUN3rtUaGwXfc62" : {
+      "email" : "try@abc.com",
+      "name" : "tryman",
+      "password" : "tryman"
+    }
+  }
+}
