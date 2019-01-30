@@ -15,9 +15,9 @@ for (let name in stores) {
                     <p class="card-text">${stores[name].address}</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <a href="">
+                    <!-- <a href="">
                         <li class="list-group-item">Products low on stock: 2</li>
-                    </a>
+                    </a>-->
                 </ul>
                 <div class="card-body">
                     <button type="button" class="btn btn-secondary" onclick="storeInfo('${name}')" data-toggle="modal" data-target="#viewStoreInfo">View</button>
