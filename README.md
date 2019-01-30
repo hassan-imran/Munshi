@@ -56,6 +56,9 @@ The application is designed with some built-in security features.
 
 You cannot access home/index.html or home/products.html or any other html page without authorized access
 
+Try visiting any of the webpages in [this directory](home) on the hosted link.
+(For example the [dashboard page](https://munshi-ims.firebaseapp.com/home/index.html) https://munshi-ims.firebaseapp.com/home/index.html)
+
 
 Upon signup or sign in the dashboard page takes  a little long to load. The reason behind this is the security check and the API calls for the user data from firebase.
 
