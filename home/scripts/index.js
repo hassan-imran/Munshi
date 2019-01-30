@@ -3,6 +3,8 @@ document.getElementById('low-stock').innerHTML = lowStock();
 document.getElementById('discounted').innerHTML = discounted();
 document.getElementById('total-sales').innerHTML = totalSales();
 
+// function for turning the badge into red on products less than 10 in the inventory
+
 function lowStock() {
     var i = 0;
     for (name in products) {
@@ -12,6 +14,9 @@ function lowStock() {
     }
     return i;
 }
+
+//function for counting the total discounted products in the inventory
+
 function discounted() {
     var i = 0;
     for (name in products) {
@@ -21,6 +26,8 @@ function discounted() {
     }
     return i;
 }
+
+// function for calculating the total sales
 
 function totalSales() {
     var i = 0;
