@@ -50,58 +50,13 @@
             <h1 class="display-4">Your Stores</h1>
             <hr>
             <p class="lead"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addStore"
-                    id="addNewStoreBtn">Add
+                    id="addNewStoreBtn" onclick="clearModal()">Add
                     New Store</button></p>
         </div>
     </div>
 
-    <!--Apply css to this div-->
+
     <div id="store-details">
-        <!-- <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <a href="">
-                        <h5 class="card-title">Safoora Branch</h5>
-                    </a>
-                    <p class="card-text">C-130, Block 12, Gulistan e Johar, University Road, Karachi</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <a href="">
-                        <li class="list-group-item">Total Categories: 10</li>
-                    </a>
-                    <a href="">
-                        <li class="list-group-item">Total Products: 30</li>
-                    </a>
-                    <a href="">
-                        <li class="list-group-item">Total Sales</li>
-                    </a>
-                </ul>
-                <div class="card-body">
-                    <button type="button" class="btn btn-secondary">View</button>
-                    <button type="button" class="btn btn-danger">Remove</button>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <a href="">
-                        <h5 class="card-title">Hassan Square Branch</h5>
-                    </a>
-                    <p class="card-text">C-10, Block 3, Gulhan, University Road, Karachi</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <a href="">
-                        <li class="list-group-item">Total Categories: 10</li>
-                    </a>
-                    <a href="">
-                        <li class="list-group-item">Total Products: 30</li>
-                    </a>
-                    <a href="">
-                        <li class="list-group-item">Total Sales</li>
-                    </a>
-                </ul>
-                <div class="card-body">
-                    <button type="button" class="btn btn-secondary">View</button>
-                    <button type="button" class="btn btn-danger">Remove</button>
-                </div> -->
     </div>
     </div>
 
@@ -141,7 +96,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success" onclick="addNewStore()">Add</button>
+                    <button type="button" class="btn btn-success" id="confirm-add-store" onclick="addNewStore()">Add</button>
                 </div>
             </div>
         </div>
@@ -202,6 +157,7 @@
                 </ul>
                 <div class="card-body">
                     <button type="button" class="btn btn-secondary" onclick="storeInfo('${name}')" data-toggle="modal" data-target="#viewStoreInfo">View</button>
+                    <button type="button" class="btn btn-primary" onclick="editStore('${name}')">Edit</button>
                     <button type="button" class="btn btn-danger" onclick="deleteStore('${name}')">Remove</button>
                 </div>
             </div></div>`;
@@ -226,11 +182,32 @@
         firebase.database().ref("/stores/" + localStorage.token).update(stores).then(() => window.location.reload(false));
     }
 
+    function editStore(name) {
+        document.getElementById("addNewStoreBtn").click();
+        var x = stores[name];
+        $('#branch')[0].value = name;
+        $('#address')[0].value = x.address;
+        
+        document.getElementById("confirm-add-store").addEventListener("click", editStorelistenerFunction)
+    }
+
+    var editStorelistenerFunction = (e) => {
+            delete stores[name];
+            localStorage.stores = JSON.stringify(stores);
+            firebase.database().ref("/stores/" + localStorage.token).set(stores)
+        };
+
     function deleteStore(name) {
         delete stores[name];
         localStorage.stores = JSON.stringify(stores);
         firebase.database().ref("/stores/" + localStorage.token).set(stores).then(() => window.location.reload(false));
     };
+
+    function clearModal() {
+        $('#branch')[0].value = '';
+        $('#address')[0].value = '';
+        document.getElementById("confirm-add-store").removeEventListener("click", editStorelistenerFunction)
+    }
 
 </script>
 
