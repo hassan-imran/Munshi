@@ -28,7 +28,7 @@ The purpose of it is to
 
 ## The Project is live at
 
-[munshi-ims](munshi-ims.firebaseapp.com)
+[munshi-ims](https://munshi-ims.firebaseapp.com)
 
 ************
 
