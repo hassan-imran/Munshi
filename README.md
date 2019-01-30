@@ -5,7 +5,7 @@ This is a concept Inventory Management System (IMS) web-based application using 
 
 *****
 
-##Purpose
+## Purpose
 
 The purpose of it is to 
 
