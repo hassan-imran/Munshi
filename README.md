@@ -50,4 +50,8 @@ You cannot access home/index.html or home/products.html or any other html page w
 
 Upon signup or sign in the dashboard page takes  a little long to load. The reason behind this is the security check and the API calls for the user data from firebase.
 
+*********
 
+## Low Stock
+
+If the stock is lower than 10 then it appears in red indicating that  the stock is low and should be topped up again
