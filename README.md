@@ -72,7 +72,7 @@ If the stock is lower than 10 then it appears in red indicating that  the stock 
 
 ## Project is still developing
 
-We are still working on this projcet to make sub-inventories of each store that can be managed individually
+We are still working on this project to make sub-inventories of each store that can be managed individually
 
 ********
 
