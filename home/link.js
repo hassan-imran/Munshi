@@ -9,12 +9,11 @@ if (!(localStorage.products && localStorage.stores) || (localStorage.products ==
     firebase.database().ref("stores/" + localStorage.token).once('value').then((snapshot) => {
         localStorage.stores = JSON.stringify(snapshot.val());
         stores = JSON.parse(localStorage.stores);
-    }).then(()=>{window.location.reload(false);});
+    }).then(() => { window.location.reload(false); });
 }
 else {
-    document.getElementById("content").style.display = "block";
     document.getElementById("loader").style.display = "none";
+    document.getElementById("content").style.display = "block";
     products = JSON.parse(localStorage.products);
     stores = JSON.parse(localStorage.stores);
 }
-
