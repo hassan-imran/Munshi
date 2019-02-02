@@ -12,7 +12,8 @@ if (!(localStorage.products && localStorage.stores) || (localStorage.products ==
     }).then(()=>{window.location.reload(false);});
 }
 else {
-    document.getElementsByTagName("body")[0].style.display = "block";
+    document.getElementById("content").style.display = "block";
+    document.getElementById("loader").style.display = "none";
     products = JSON.parse(localStorage.products);
     stores = JSON.parse(localStorage.stores);
 }
