@@ -62,6 +62,15 @@
     padding: 6px 0px;
 }
 
+/* This is for the footer */
+
+footer {
+    background: #676b6e;
+    min-height: 100px;
+    color: #EEE;
+    text-align: center;
+}
+
 /* This is for the signout button */
 
 #signoutBtn {
