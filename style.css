@@ -55,11 +55,55 @@
 }
 
 .navbar-nav .active .nav-link {
-    color: #343a40 !important;
+    color: #4e5255 !important;
 }
 
 .navbar-nav .nav-link {
     padding: 6px 0px;
+}
+
+/* This is for the footer */
+
+footer {
+    background: #676b6e;
+    min-height: 100px;
+    color: #EEE;
+    padding: 20px;
+    margin-top: 120px;
+}
+
+footer #copyright {
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+footer ul {
+    list-style: none;
+    text-align: left;
+    font-size: 16px;
+    width: 200px;
+    display: inline-block;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: #FFF!important;
+}
+
+footer a>li {
+    padding-left: 15px;
+}
+
+footer #logo_bottom {
+    float: right;
+    font-size: 150px;
+    line-height: 1;
+    font-weight: 700;
+    color: #53565a;
 }
 
 /* This is for the signout button */
@@ -100,6 +144,28 @@
 
 
 /* End of Stores CSS */
+
+
+/* For responsiveness of the footer */
+
+@media only screen and (max-width: 540px) {
+    footer ul {
+        width: 100%;
+    }
+
+    footer #logo_bottom {
+        width: 100%;
+        font-size: 100px;
+    }
+    
+    footer #footer-container, li {
+        text-align: center;
+    }
+
+    footer a>li {
+        padding-left: 0;
+    }
+}
 
 
 /* This is for the top padding of the nav links when responsive at 990px */
