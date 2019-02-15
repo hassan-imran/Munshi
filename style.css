@@ -69,6 +69,22 @@ footer {
     min-height: 100px;
     color: #EEE;
     text-align: center;
+    /* line-height: 100px; */
+    padding: 20px;
+}
+
+footer ul {
+    list-style: none;
+    text-align: left;
+    font-size: 16px;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: #FFF!important;
 }
 
 /* This is for the signout button */
