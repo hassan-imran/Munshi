@@ -93,9 +93,13 @@ footer a {
     color: #FFF!important;
 }
 
+footer a>li {
+    padding-left: 15px;
+}
+
 footer #logo_bottom {
     float: right;
-    font-size: 80px;
+    font-size: 150px;
     line-height: 1;
     font-weight: 700;
     color: #53565a;
@@ -150,10 +154,15 @@ footer #logo_bottom {
 
     footer #logo_bottom {
         width: 100%;
+        font-size: 100px;
     }
     
     footer #footer-container, li {
         text-align: center;
+    }
+
+    footer a>li {
+        padding-left: 0;
     }
 }
 
