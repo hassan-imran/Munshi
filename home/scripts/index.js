@@ -2,6 +2,7 @@ document.getElementById('stores').innerHTML = Object.keys(stores).length;
 document.getElementById('low-stock').innerHTML = lowStock();
 document.getElementById('discounted').innerHTML = discounted();
 document.getElementById('total-sales').innerHTML = totalSales();
+document.getElementById('user-name').innerHTML = `Welcome ${localStorage.uname}!`;
 
 // function for turning the badge into red on products less than 10 in the inventory
 
