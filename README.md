@@ -88,6 +88,6 @@ Sign up using any random email combination (provided that it is a valid format f
 
 *****
 
-## Project is still developing
+## Project is Stopped
 
-We are still working on this project to make sub-inventories of each store that can be managed individually
+This project was created as a challenge and an assignment, however I cannot find much time due to my commitments to work on this further.
